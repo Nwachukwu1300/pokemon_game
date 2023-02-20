@@ -17,6 +17,7 @@ public:
     int counter = 0;
     string Pokemon_Name;
     vector <string> Pokemon_Names;
+
     
 
     //creates the class
@@ -82,10 +83,10 @@ public:
 
 
         //random gen
-        std::mt19937 rng(std::time(0)); // `std::minstd_rand` would also work.
-        std::uniform_int_distribution d(0,length);
+        //mt19937 rng(std::time(0)); // `std::minstd_rand` would also work.
+        //std::uniform_int_distribution d(0,length - 1);
 
-        random = d(rng);
+        //random = d(rng);
         cout << "Random number: "<< random << endl;
 
         temp = Pokemon_Names[random];
@@ -107,13 +108,7 @@ public:
             }
                 
         }
-     cout<<"THis is the new array:"<<endl;
-            for(int j = 0; j < length; j++)
-        {
-           
-            cout<<Pokemon_Names[j]<<endl;
-
-        }
+    
 
         return temp;
     }
