@@ -12,9 +12,9 @@ using namespace std;
 class Player
 {
     public:
-        int poke_Balls = 0;
-        int pokemon_Count = 0;
-        string player_Name = "";
+    int poke_Balls = 0;
+    int pokemon_Count = 0;
+    string player_Name = "";
 };
 
 int main()
