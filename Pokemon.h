@@ -31,17 +31,10 @@ public:
             load_pokemon();
         }
         
-        Pokemon_Name = shuffle_pokemon_order();
-
-
-    
         //create the name of the pokemon object
-        name = Pokemon_Name;
         pokemon_Hp = 100;
-        cout << "Pokemon " << name << " created" << endl;
         
         cout<<endl;
-        
     }
 
     void load_pokemon()
@@ -72,56 +65,43 @@ public:
         }
     }
 
-    string shuffle_pokemon_order()
+    int pick_Random_Pokemon(int randomInt)
     {
         //declare variables
         string temp = "";
-        int length = 0;
-        int random = 0;
+    
+        //temp stores the random pokemon that is picked from the vector
+        temp = Pokemon_Names[randomInt];
 
-        length = Pokemon_Names.size();
-
-
-        //random gen
-        //mt19937 rng(std::time(0)); // `std::minstd_rand` would also work.
-        //std::uniform_int_distribution d(0,length - 1);
-
-        //random = d(rng);
-        cout << "Random number: "<< random << endl;
-
-        temp = Pokemon_Names[random];
-        
-        cout << "temp holds " << temp << endl;
-
-        for(int i = 0; i < length; i++)
+        //for loop to remove the names of the pokemon that have already been chosen so there is no repeat (DOES NOT WORK ATM)
+        for(int i = 0; i < 5; i++)
         {
              if(temp == Pokemon_Names[i])
              {
                 if(i == 0)
                 {
-                    Pokemon_Names.erase(Pokemon_Names.begin());
+                    std::remove(Pokemon_Names.begin(), Pokemon_Names.end(), Pokemon_Names[i]);
+
                 }
             }
             else
             {
-                Pokemon_Names.erase(Pokemon_Names.begin() + i);
+                std::remove(Pokemon_Names.begin(), Pokemon_Names.end(), Pokemon_Names[i]);
             }
                 
         }
     
+        name = temp; 
 
-        return temp;
+        return randomInt;
     }
 
-    void say_Hello()
+    //prints the stats of the pokemon. (later could add the pokemon type (Fire,water etc...))
+    void print_stats()
     {
-        cout << "Hello, my name is " << name << endl;
-    }
+        cout << "Name: " << name << endl;
+        cout << "Hp: " << pokemon_Hp << endl;
 
-    void check_Hp() 
-    {
-        cout << name << "'s HP is currently " << pokemon_Hp << endl;
     }
-
     
 };   
