@@ -74,7 +74,7 @@ public:
         temp = Pokemon_Names[randomInt];
 
         //for loop to remove the names of the pokemon that have already been chosen so there is no repeat (DOES NOT WORK ATM)
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 6; i++)
         {
              if(temp == Pokemon_Names[i])
              {
@@ -90,7 +90,8 @@ public:
             }
                 
         }
-    
+
+        //the name of the pokemon gets transferred to the public variable
         name = temp; 
 
         return randomInt;
