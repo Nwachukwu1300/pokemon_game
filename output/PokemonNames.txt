@@ -18,4 +18,4 @@ Pidgeot
 Magikarp
 Electrabuzz
 Butterfree
-Eviee
+Eevee
