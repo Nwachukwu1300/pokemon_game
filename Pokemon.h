@@ -11,7 +11,6 @@ using namespace std;
 class NPC
 {
 public:
-    string name;
     int pokemon_Hp = 0;
     int counter = 0;
     string Pokemon_Name;
@@ -91,15 +90,56 @@ public:
         }
 
         //the name of the pokemon gets transferred to the public variable
-        name = temp; 
+        Pokemon_Name = temp; 
 
         return randomInt;
     }
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                            Setters
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+string set_Name(string name)
+{
+    //set the public variable pokemon_name to the name just passed in
+    Pokemon_Name = name;
+}
+
+int set_Hp(int HP)
+{
+    //set the public variable pokemon_hp to the hp just passed in
+    pokemon_Hp = HP;
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                            Getters
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    string get_Name()
+    {
+        //return the pokemon name on request
+        return Pokemon_Name;
+    }
+
+    int get_Hp()
+    {
+        //retunn the pokemon hp on request
+        return pokemon_Hp;
+    }
+    
+    
+    
+    
+    
+    
+    
     //prints the stats of the pokemon. (later could add the pokemon type (Fire,water etc...))
     void print_stats()
     {
-        cout << "Name: " << name << endl;
+        cout << "Name: " << Pokemon_Name << endl;
         cout << "Hp: " << pokemon_Hp << endl;
 
     }

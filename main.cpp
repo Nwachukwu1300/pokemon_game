@@ -3,6 +3,7 @@
 #include <random>
 #include "Pokemon.h"
 #include "Pokemon_moves.h"
+#include "battles.h"
 using namespace std;
 
 //class involving the players stats
@@ -51,9 +52,31 @@ int main()
     Pokemon5.pick_Random_Pokemon(randomInt);
     Pokemon5.print_stats();
 
+    cout << endl;
+
     electric_Move1.electric_Move1();
     electric_Move1.print_Status();
 
+    cout << endl;
+
+    //just testing a quick battle feature wont be done in main. Just testing whislt i wait (wonderful)
+    int new_Hp = 0;
+
+    //checking getters are working 
+    cout << Pokemon1.get_Name() << " has been hit with zippy zap!" <<endl << Pokemon1.get_Name() << " had " << Pokemon1.get_Hp() << "HP." << endl;
+
+    //method to calculate the new hp of the pokemon inputtting the orginal hp and the damage the move does (hard coded the damnage normally will have to fetch it from the pokemon moves from whatever move the user choses but the code is not finished yet so i used 50 for now)
+    new_Hp = attack(Pokemon1.get_Hp(),50);
+
+    //set the new hp of the pokemon 
+    Pokemon1.set_Hp(new_Hp);
+
+    //printing out the outcome
+    cout << Pokemon1.get_Name() << " now has " << new_Hp << "HP." << endl;
+
+    cout << endl;
+    Pokemon1.print_stats();
+   
     cout << endl;
     return 0;
 }

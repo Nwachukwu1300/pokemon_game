@@ -35,7 +35,6 @@ public:
 };   
 
 #include <iostream>
-
 using namespace std;
 class Moves{//A Moves superclass that the different types should inherit from. 
 protected:// protected attributes so only the child classes can have access to them
