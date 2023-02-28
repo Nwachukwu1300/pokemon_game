@@ -1,16 +1,12 @@
 #include <iostream>
-#include <string>
-#include <array>
-#include <cstdlib>
-#include <random>
-#include <algorithm>
+
 using namespace std;
-class Moves{//A Moves superclass that the different types should inherit from. 
-protected:// protected attributes so only the child classes can have access to them
+class Moves{
+protected:
     string pokemon;
     string move_name;
     string type;
-    int damage;//Below are the Moves initialiser and constructor respectively. 
+    int damage;
     Moves(){
         pokemon = "no pokemon";
         move_name = "no move";
@@ -24,12 +20,22 @@ protected:// protected attributes so only the child classes can have access to t
         damage = aDamage;
     }
 };
-class Water : public Moves{// Water class being a child class to the Moves class
+class Water : public Moves{
 public:
     Water(string aPokemon, string aMove_name, int aDamage): Moves(aPokemon, aMove_name, "Water", aDamage){};
 };
 
-void printPokemonMoves(const Moves& poke)//take a const Moves& reference instead of a Moves object to avoid unnecessary copying, and prints pokemon moves. 
+class Fighting : public Moves{
+public:
+    Fighting(string aPokemon, string aMove_name, int aDamage): Moves(aPokemon, aMove_name, "Fighting", aDamage){};
+};
+
+class Grass : public Moves{
+public:
+    Grass(string aPokemon, string aMove_name, int aDamage): Moves(aPokemon, aMove_name, "Grass", aDamage){};
+};
+
+void printPokemonMoves(const Moves& poke)//take a const Moves& reference instead of a Moves object to avoid unnecessary copying
 {
     cout<<poke.pokemon<<"uses"<<poke.move_name<<"that causes"<<poke.damage<<"damage"<<endl;
 }
@@ -41,4 +47,12 @@ void print_Status()
 
     }
 
+/*
 
+HOW TO IMPLEMENT THE OBJECTS
+
+Water pulpip("Pulpip", "Water Gun", 40);
+Water oshawott("Oshawott", "Hydro Pump", 110);
+Water magikarp("Magikarp", "Aqua Tail", 90);
+Water eevee("Eevee", "Aqua Tail", 90);
+*/
