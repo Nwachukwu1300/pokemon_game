@@ -23,10 +23,8 @@ int main()
     
     //declare objects in main to be able to use their functions
     Player player;
-    Electric move1;
+    pokemon_Moves electric_Move1;
     
-    
-
     // the random generator, generating a random number
     int randomInt = d(rng);
     NPC Pokemon1;   //creating the first object
@@ -53,8 +51,8 @@ int main()
     Pokemon5.pick_Random_Pokemon(randomInt);
     Pokemon5.print_stats();
 
-    move1.electric_Move1();
-    move1.print_Status();
+    electric_Move1.electric_Move1();
+    electric_Move1.print_Status();
 
     cout << endl;
     return 0;

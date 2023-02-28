@@ -6,14 +6,14 @@
 #include <algorithm>
 using namespace std;
 
-class Electric
+class pokemon_Moves
 {
 public:
     string move_name;
     int damage;
     
     //creates the class
-    Electric()
+    pokemon_Moves()
     {
         cout<<endl;
     }
