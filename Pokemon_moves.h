@@ -5,38 +5,6 @@
 #include <random>
 #include <algorithm>
 using namespace std;
-
-class pokemon_Moves
-{
-public:
-    string move_name;
-    int damage;
-    
-    //creates the class
-    pokemon_Moves()
-    {
-        cout<<endl;
-    }
-
-    void electric_Move1()
-    {
-        move_name = "Zippy zap";
-        damage = 50;
-    }
-
-
-    void print_Status()
-    {   
-        cout << "This move is called : " << move_name << endl;
-        cout << "And it does " << damage << " damage." << endl;
-
-    }
-    
-};   
-
-#include <iostream>
-
-using namespace std;
 class Moves{//A Moves superclass that the different types should inherit from. 
 protected:// protected attributes so only the child classes can have access to them
     string pokemon;
@@ -65,4 +33,12 @@ void printPokemonMoves(const Moves& poke)//take a const Moves& reference instead
 {
     cout<<poke.pokemon<<"uses"<<poke.move_name<<"that causes"<<poke.damage<<"damage"<<endl;
 }
+
+void print_Status()
+    {   
+        cout << "This move is called : " << move_name << endl;
+        cout << "And it does " << damage << " damage." << endl;
+
+    }
+
 
