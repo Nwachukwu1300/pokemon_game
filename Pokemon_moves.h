@@ -39,7 +39,7 @@ void printPokemonMoves(Moves poke)
     cout<<poke.pokemon<<"uses"<<poke.move_name<<"that causes"<<poke.damage<<"damage"<<endl;
 }
 
-void print_move()
+void print_move_info()
     {   
         cout << "This move is called : " << move_name << endl;
         cout << "And it does " << damage << " damage." << endl;
