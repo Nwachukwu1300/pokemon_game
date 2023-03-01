@@ -34,7 +34,7 @@ public:
     Grass(string aPokemon, string aMove_name, int aDamage): Moves(aPokemon, aMove_name, "Grass", aDamage){};
 };
 
-void printPokemonMoves(const Moves& poke)//take a const Moves& reference instead of a Moves object to avoid unnecessary copying
+void printPokemonMoves(Moves poke)//take a const Moves& reference instead of a Moves object to avoid unnecessary copying
 {
     cout<<poke.pokemon<<"uses"<<poke.move_name<<"that causes"<<poke.damage<<"damage"<<endl;
 }
