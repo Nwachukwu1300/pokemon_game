@@ -24,7 +24,7 @@ int main()
     
     //declare objects in main to be able to use their functions
     Player player;
-    Moves electric_move1;  //uncomment when ife pastes his code for pokemon_moves
+    Moves electric_move1;
     
     // the random generator, generating a random number
     int randomInt = d(rng);
@@ -58,7 +58,11 @@ int main()
     string move;
     int damage;
 
+  
     move = electric_move1.get_Move_Name();
+
+    cout << endl;
+
     damage = electric_move1.get_Damage();
 
     cout << move;
