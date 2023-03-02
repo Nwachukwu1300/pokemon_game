@@ -20,7 +20,7 @@ int main()
 
     //random generator to create a random number
     mt19937 rng(time(0)); // https://stackoverflow.com/questions/57135552/how-can-i-set-range-to-the-random-library
-    uniform_int_distribution d(0, 6); // The range of the length of pokemon file (hardcoded must be updated if more pokemon are added)
+    uniform_int_distribution d(0, 8); // The range of the length of pokemon file (hardcoded must be updated if more pokemon are added)
     
     //declare objects in main to be able to use their functions
     Player player;
