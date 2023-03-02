@@ -1,12 +1,12 @@
 #include <iostream>
 using namespace std;
-class Moves
+class Electric
 {
 public:
     string move_name;
     int damage;
 
-    Moves()
+    Electric()
     {
         move_name = "name";
         damage = 0;
@@ -44,6 +44,109 @@ string get_Move_Name()
     void electric_Move3()
     {
         move_name = "Wild charge";
+        damage = 90;
+    }
+
+};
+
+class Normal
+{
+public:
+    string move_name;
+    int damage;
+
+    Normal()
+    {
+        move_name = "name";
+        damage = 0;
+    }
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                            Getters
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int get_Damage()
+{
+    return damage;
+}
+
+string get_Move_Name()
+{
+    return move_name;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    void normal_Move1()
+    {
+        move_name = "Vice grip";
+        damage = 55;
+    }
+
+    void normal_Move2()
+    {
+        move_name = "Slash";
+        damage = 70;
+    }
+
+    void normal_Move3()
+    {
+        move_name = "Rock climb";
+        damage = 90;
+    }
+    void normal_Move4()
+    {
+        move_name = "Judgement";
+        damage = 100;
+    }
+
+};
+
+class Dragon
+{
+public:
+    string move_name;
+    int damage;
+
+    Dragon()
+    {
+        move_name = "name";
+        damage = 0;
+    }
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                            Getters
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int get_Damage()
+{
+    return damage;
+}
+
+string get_Move_Name()
+{
+    return move_name;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    void dragon_Move1()
+    {
+        move_name = "Dual chop";
+        damage = 40;
+    }
+
+    void dragon_Move2()
+    {
+        move_name = "Dragon claw";
+        damage = 80;
+    }
+
+    void dragon_Move3()
+    {
+        move_name = "Dragon hammer";
         damage = 90;
     }
 

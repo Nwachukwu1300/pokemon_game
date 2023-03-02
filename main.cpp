@@ -24,7 +24,7 @@ int main()
     
     //declare objects in main to be able to use their functions
     Player player;
-    Moves electric_move1;
+    Electric electric_move1;
     
     // the random generator, generating a random number
     int randomInt = d(rng);
