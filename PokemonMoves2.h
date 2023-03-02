@@ -1,54 +1,45 @@
-#ifndef POKEMON_MOVES_H
-#define POKEMON_MOVES_H
+#ifndef POKEMON_H
+#define POKEMON_H
 
+#include <iostream>
 #include <string>
 
 using namespace std;
 
 class Moves {
-public:
+protected:
     string move_name;
     int damage;
-    string type;
-
+public:
     Moves() {
         move_name = "name";
         damage = 0;
-        type = "none";
     }
 
-    int get_damage() {
+    int getDamage() {
         return damage;
     }
 
-    string get_move_name() {
+    string getMoveName() {
         return move_name;
-    }
-
-    string get_type() {
-        return type;
     }
 };
 
 class Electric : public Moves {
 public:
-    Electric() {
-        move_name = "name";
-        damage = 0;
-        type = "Electric";
-    }
+    Electric() : Moves() {}
 
-    void electric_Move1() {
+    void electricMove1() {
         move_name = "Zippy zap";
         damage = 50;
     }
 
-    void electric_Move2() {
+    void electricMove2() {
         move_name = "Thunder punch";
         damage = 75;
     }
 
-    void electric_Move3() {
+    void electricMove3() {
         move_name = "Wild charge";
         damage = 90;
     }
@@ -56,28 +47,24 @@ public:
 
 class Normal : public Moves {
 public:
-    Normal() {
-        move_name = "name";
-        damage = 0;
-        type = "Normal";
-    }
+    Normal() : Moves() {}
 
-    void normal_Move1() {
+    void normalMove1() {
         move_name = "Vice grip";
         damage = 55;
     }
 
-    void normal_Move2() {
+    void normalMove2() {
         move_name = "Slash";
         damage = 70;
     }
 
-    void normal_Move3() {
+    void normalMove3() {
         move_name = "Rock climb";
         damage = 90;
     }
 
-    void normal_Move4() {
+    void normalMove4() {
         move_name = "Judgement";
         damage = 100;
     }
@@ -85,23 +72,19 @@ public:
 
 class Dragon : public Moves {
 public:
-    Dragon() {
-        move_name = "name";
-        damage = 0;
-        type = "Dragon";
-    }
+    Dragon() : Moves() {}
 
-    void dragon_Move1() {
+    void dragonMove1() {
         move_name = "Dual chop";
         damage = 40;
     }
 
-    void dragon_Move2() {
+    void dragonMove2() {
         move_name = "Dragon claw";
         damage = 80;
     }
 
-    void dragon_Move3() {
+    void dragonMove3() {
         move_name = "Dragon hammer";
         damage = 90;
     }
@@ -109,70 +92,68 @@ public:
 
 class Water : public Moves {
 public:
-    Water() {
-        move_name = "name";
-        damage = 0;
-        type = "Water";
+    Water() : Moves() {}
+
+    void waterMove1() {
+        move_name = "Water gun";
+        damage = 40;
     }
 
-    void water_Move1() {
+    void waterMove2() {
         move_name = "Hydro pump";
-        damage = 80;
+        damage = 110;
     }
 
-    void water_Move2() {
+    void waterMove3() {
         move_name = "Aqua tail";
         damage = 90;
-    }
-
-    void water_Move3() {
-        move_name = "Surf";
-        damage = 75;
     }
 };
 
 class Fighting : public Moves {
 public:
-    Fighting() {
-        move_name = "name";
-        damage = 0;
-        type = "Fighting";
+    Fighting() : Moves() {}
+
+    void fightingMove1() {
+        move_name = "Karate chop";
+        damage = 50;
     }
 
-    void fighting_Move1() {
-        move_name = "Cross chop";
-        damage = 80;
+    void fightingMove2() {
+        move_name = "Brick break";
+        damage = 75;
     }
 
-    void fighting_Move2() {
-        move_name = "Dynamic punch";
-        damage = 70;
-    }
-
-    void fighting_Move3() {
-        move_name = "Focus punch";
-        damage = 100;
+    void fightingMove3() {
+        move_name = "Superpower";
+        damage = 120;
     }
 };
 
 class Grass : public Moves {
+private:
+    string type;
 public:
-    Grass() {
-        move_name = "name";
-        damage = 0;
-        type = "Grass";
+    Grass() : Moves(), type("Grass") {}
+
+    string getType() {
+        return type;
     }
 
-    void grass_Move1() {
-        move_name = "Leaf blade";
-        damage = 90;
+    void grassMove1() {
+        move_name = "Vine whip";
+        damage = 45;
     }
 
-    void grass_Move2() {
-        move_name = "Petal dance";
-        damage = 70;
+    void grassMove2() {
+        move_name = "Razor leaf";
+        damage = 55;
     }
 
-    void grass_Move3() {
+    void grassMove3() {
         move_name = "Solar beam";
-        damage
+        damage = 120;
+    }
+};
+
+#endif  // POKEMON_H
