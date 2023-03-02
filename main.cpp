@@ -24,7 +24,7 @@ int main()
     
     //declare objects in main to be able to use their functions
     Player player;
-    pokemon_Moves electric_Move1;
+   // Moves Electric_move1; //uncomment when ife pastes his code for pokemon_moves
     
     // the random generator, generating a random number
     int randomInt = d(rng);
@@ -54,8 +54,15 @@ int main()
 
     cout << endl;
 
-    electric_Move1.electric_Move1();
-    electric_Move1.print_Status();
+//all works if ife uses his code on pokemon_moves
+    //string move;
+    //int damage;
+
+    //move = Electric_move1.get_Move_Name();
+    //damage = Electric_move1.get_Damage();
+
+    //cout << move;
+    //cout << damage;
 
     cout << endl;
 
