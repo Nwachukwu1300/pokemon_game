@@ -1,57 +1,59 @@
 #include <iostream>
 using namespace std;
-class Moves{
-protected:
-    string pokemon;
+class Moves
+{
+public:
     string move_name;
-    string type;
     int damage;
-    Moves(){
-        pokemon = "no pokemon";
-        move_name = "no move";
-        type = "no type";
+
+    Moves()
+    {
+        move_name = "name";
         damage = 0;
     }
-    Moves(string aPokemon, string aMove_name, string aType, int aDamage){
-        pokemon = aPokemon;
-        move_name = aMove_name;
-        type = aType;
-        damage = aDamage;
-    }
-};
-class Water : public Moves{
-public:
-    Water(string aPokemon, string aMove_name, int aDamage): Moves(aPokemon, aMove_name, "Water", aDamage){};
-};
 
-class Fighting : public Moves{
-public:
-    Fighting(string aPokemon, string aMove_name, int aDamage): Moves(aPokemon, aMove_name, "Fighting", aDamage){};
-};
 
-class Grass : public Moves{
-public:
-    Grass(string aPokemon, string aMove_name, int aDamage): Moves(aPokemon, aMove_name, "Grass", aDamage){};
-};
 
-void printPokemonMoves(Moves poke)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                            Getters
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int get_Damage()
 {
-    cout<<poke.pokemon<<"uses"<<poke.move_name<<"that causes"<<poke.damage<<"damage"<<endl;
+    return damage;
 }
 
-void print_move_info()
-    {   
-        cout << "This move is called : " << move_name << endl;
-        cout << "And it does " << damage << " damage." << endl;
+string get_Move_Name()
+{
+    return move_name;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+};
+    //creates the class
+class Electric: public Moves
+{
+    Electric()
+    {
+        cout<<endl;
+    }
+    void electric_Move1()
+    {
+        move_name = "Zippy zap";
+        damage = 50;
     }
 
-/*
+    void electric_Move2()
+    {
+        move_name = "Thunder punch";
+        damage = 75;
+    }
 
-HOW TO IMPLEMENT THE OBJECTS
+    void electric_Move3()
+    {
+        move_name = "Wild charge";
+        damage = 90;
+    }
 
-Water pulpip("Pulpip", "Water Gun", 40);
-Water oshawott("Oshawott", "Hydro Pump", 110);
-Water magikarp("Magikarp", "Aqua Tail", 90);
-Water eevee("Eevee", "Aqua Tail", 90);
-*/
+};
