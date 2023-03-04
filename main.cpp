@@ -24,7 +24,8 @@ int main()
     
     //declare objects in main to be able to use their functions
     Player player;
-    Electric electric_move1;
+    Electric electric_Move1;
+    Normal normal_Move1;
     
     // the random generator, generating a random number
     int randomInt = d(rng);
@@ -52,21 +53,6 @@ int main()
     Pokemon5.pick_Random_Pokemon(randomInt);
     Pokemon5.print_stats();
 
-    cout << endl;
-
-//all works if ife uses his code on pokemon_moves
-    string move;
-    int damage;
-
-  
-    move = electric_move1.get_Move_Name();
-
-    cout << endl;
-
-    damage = electric_move1.get_Damage();
-
-    cout << move;
-    cout << damage;
 
     cout << endl;
 
@@ -74,10 +60,11 @@ int main()
     int new_Hp = 0;
 
     //checking getters are working 
-    cout << Pokemon1.get_Name() << " has been hit with zippy zap!" <<endl << Pokemon1.get_Name() << " had " << Pokemon1.get_Hp() << "HP." << endl;
+    normal_Move1.normal_Move1(); //to make the function work for the moves, we must call it first like this
+    cout << Pokemon1.get_Name() << " has been hit with "<< normal_Move1.get_Move_Name() << endl << Pokemon1.get_Name() << " had " << Pokemon1.get_Hp() << "HP." << endl;
 
     //method to calculate the new hp of the pokemon inputtting the orginal hp and the damage the move does (hard coded the damnage normally will have to fetch it from the pokemon moves from whatever move the user choses but the code is not finished yet so i used 50 for now)
-    new_Hp = attack(Pokemon1.get_Hp(),50);
+    new_Hp = attack(Pokemon1.get_Hp(),normal_Move1.get_Damage());
 
     //set the new hp of the pokemon 
     Pokemon1.set_Hp(new_Hp);
