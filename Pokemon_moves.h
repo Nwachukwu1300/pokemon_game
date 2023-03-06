@@ -14,19 +14,9 @@ public:
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                            Getters
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int get_Damage()
-{
-    return damage;
-}
 
-string get_Move_Name()
-{
-    return move_name;
-}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void electric_Move1()
@@ -47,7 +37,53 @@ string get_Move_Name()
         damage = 90;
     }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                            Getters
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Electric move 1 getters//
+int get_move1_damage()
+{
+    electric_Move1();
+    return damage;
+}
+
+string get_move1_name()
+{
+    electric_Move1();
+    return move_name;
+}
+
+
+//Electric move 2 getters//
+int get_move2_damage()
+{
+    electric_Move2();
+    return damage;
+}
+
+string get_move2_name()
+{
+    electric_Move2();
+    return move_name;
+}
+
+
+
+//Electric move 3 getters//
+int get_move3_damage()
+{
+    electric_Move3();
+    return damage;
+}
+
+string get_move3_name()
+{
+    electric_Move3();
+    return move_name;
+}
 };
+
 
 class Normal
 {
@@ -62,20 +98,10 @@ public:
     }
 
 
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                            Getters
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int get_Damage()
-{
-    return damage;
-}
-
-string get_Move_Name()
-{
-    return move_name;
-}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void normal_Move1()
@@ -101,6 +127,66 @@ string get_Move_Name()
         damage = 100;
     }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                            Getters
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Normal move 1 getters//
+int get_move1_damage()
+{
+    normal_Move1();
+    return damage;
+}
+
+string get_move1_name()
+{
+    normal_Move1();
+    return move_name;
+}
+
+
+//Normal move 2 getters//
+int get_move2_damage()
+{
+    normal_Move2();
+    return damage;
+}
+
+string get_move2_name()
+{
+    normal_Move2();
+    return move_name;
+}
+
+
+
+//Normal move 3 getters//
+int get_move3_damage()
+{
+    normal_Move3();
+    return damage;
+}
+
+string get_move3_name()
+{
+    normal_Move3();
+    return move_name;
+}
+
+
+
+//Normal move 4 getters//
+int get_move4_damage()
+{
+    normal_Move4();
+    return damage;
+}
+
+string get_move4_name()
+{
+    normal_Move4();
+    return move_name;
+}
 };
 
 class Dragon
@@ -116,20 +202,6 @@ public:
     }
 
 
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                            Getters
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-int get_Damage()
-{
-    return damage;
-}
-
-string get_Move_Name()
-{
-    return move_name;
-}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void dragon_Move1()
@@ -150,7 +222,53 @@ string get_Move_Name()
         damage = 90;
     }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                            Getters
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Dragon move 1 getters//
+int get_move1_damage()
+{
+    dragon_Move1();
+    return damage;
+}
+
+string get_move1_name()
+{
+    dragon_Move1();
+    return move_name;
+}
+
+
+//Dragon move 2 getters//
+int get_move2_damage()
+{
+    dragon_Move2();
+    return damage;
+}
+
+string get_move2_name()
+{
+    dragon_Move2();
+    return move_name;
+}
+
+
+
+//Dragon move 3 getters//
+int get_move3_damage()
+{
+    dragon_Move3();
+    return damage;
+}
+
+string get_move3_name()
+{
+    dragon_Move3();
+    return move_name;
+}
 };
+
 class Water {
 public:
     string move_name;
@@ -159,15 +277,6 @@ public:
     Water() {
         move_name = "name";
         damage = 0;
-    }
-
-    // Getters
-    int get_Damage() {
-        return damage;
-    }
-
-    string get_Move_Name() {
-        return move_name;
     }
 
     void water_Move1() {
@@ -184,6 +293,52 @@ public:
         move_name = "Hydro pump";
         damage = 90;
     }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                            Getters
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Water move 1 getters//
+int get_move1_damage()
+{
+    water_Move1();
+    return damage;
+}
+
+string get_move1_name()
+{
+    water_Move1();
+    return move_name;
+}
+
+
+//Water move 2 getters//
+int get_move2_damage()
+{
+    water_Move2();
+    return damage;
+}
+
+string get_move2_name()
+{
+    water_Move2();
+    return move_name;
+}
+
+
+
+//Water move 3 getters//
+int get_move3_damage()
+{
+    water_Move3();
+    return damage;
+}
+
+string get_move3_name()
+{
+    water_Move3();
+    return move_name;
+}
 };
 
 class Grass {
@@ -194,15 +349,6 @@ public:
     Grass() {
         move_name = "name";
         damage = 0;
-    }
-
-    // Getters
-    int get_Damage() {
-        return damage;
-    }
-
-    string get_Move_Name() {
-        return move_name;
     }
 
     void grass_Move1() {
@@ -219,6 +365,51 @@ public:
         move_name = "Solar beam";
         damage = 90;
     }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                            Getters
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Grass move 1 getters//
+int get_move1_damage()
+{
+    grass_Move1();
+    return damage;
+}
+
+string get_move1_name()
+{
+    grass_Move1();
+    return move_name;
+}
+
+
+//Grass move 2 getters//
+int get_move2_damage()
+{
+    grass_Move2();
+    return damage;
+}
+
+string get_move2_name()
+{
+    grass_Move2();
+    return move_name;
+}
+
+
+//Grass move 3 getters//
+int get_move3_damage()
+{
+    grass_Move3();
+    return damage;
+}
+
+string get_move3_name()
+{
+    grass_Move3();
+    return move_name;
+}
 };
 
 class Fighting {

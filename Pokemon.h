@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Pokemon_moves.h"
 #include <fstream> //used for files
 #include <string>
 #include <vector>
@@ -15,6 +16,11 @@ public:
     int counter = 0;
     string Pokemon_Name;
     vector <string> Pokemon_Names;
+    vector <string> Electric_type {"Picachu", "Luxray", "Electrabuzz"};
+    vector <string> Normal_type{"Mewtwo", "Snorlax", "Jigglypuff", "Pidgeot", "Butterfree", "Eevee"};
+    vector <string> Dragon_type{"Charzard", "Infernape", "Dragonite", "Axew"};
+    vector <string> Water_type{"Puplip", "Oshawott", "Magikarp"};
+    vector <string> Grass_type{"Snivy", "Bulbasaur", "Turtwig"};
 
     
 
@@ -93,8 +99,9 @@ public:
         Pokemon_Name = temp; 
 
         return randomInt;
+        
+       
     }
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                            Setters
@@ -133,8 +140,34 @@ int set_Hp(int HP)
         //retunn the pokemon hp on request
         return pokemon_Hp;
     }
+    
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+void pokemon_type()
+{
+    if (count(Electric_type.begin(), Electric_type.end(), Pokemon_Name))
+    {
+        cout << "Pokemon is electric"<< endl;
+        
+        
+    }
+    else if (count(Normal_type.begin(), Normal_type.end(), Pokemon_Name))
+    {
+        cout << "Pokemon is Normal"<< endl;
+    }
+    else if (count(Dragon_type.begin(), Dragon_type.end(), Pokemon_Name))
+    {
+        cout << "Pokemon is a Dragon"<< endl;
+    }
+    else if (count(Grass_type.begin(), Grass_type.end(), Pokemon_Name))
+    {
+        cout << "Pokemon is Grass"<< endl;
+    }
+    else if (count(Water_type.begin(), Water_type.end(), Pokemon_Name))
+    {
+        cout << "Pokemon is Water"<< endl;
+    }
+                
+}
     
     
     
@@ -150,3 +183,4 @@ int set_Hp(int HP)
     }
     
 };   
+
