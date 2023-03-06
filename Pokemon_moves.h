@@ -1,3 +1,5 @@
+#ifndef POKEMON_MOVES_H
+#define POKEMON_MOVES_H
 #include <iostream>
 using namespace std;
 class Electric
@@ -439,3 +441,4 @@ void fightingMove1() {
         damage = 120;
     }
 };
+#endif
