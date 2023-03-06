@@ -1,3 +1,5 @@
+#ifndef POKEMON_H
+#define POKEMON_H
 #include <iostream>
 #include "Pokemon_moves.h"
 #include <fstream> //used for files
@@ -183,4 +185,5 @@ void pokemon_type()
     }
     
 };   
+#endif
 
