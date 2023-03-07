@@ -26,6 +26,7 @@ int main()
     Player player;
     Electric electric_Move1;
     Normal normal_Move1;
+    Water water_Move3;
     
     // the random generator, generating a random number
     int randomInt = d(rng);
@@ -57,20 +58,34 @@ int main()
     cout << endl;
 
     //just testing a quick battle feature wont be done in main. Just testing whislt i wait (wonderful)
-    int new_Hp = 0;
+    int new_Hp = 100;
 
+    while(new_Hp > 0)
+    {
+
+    if(water_Move3.counter3 <= 0 )
+    {
+        cout << "This move has been exhaused!" << endl;
+        exit(0);
+    }
+    else
+    {
     //checking getters are working 
-    normal_Move1.normal_Move1(); //to make the function work for the moves, we must call it first like this
-    cout << Pokemon1.get_Name() << " has been hit with "<< normal_Move1.get_Move_Name() << endl << Pokemon1.get_Name() << " had " << Pokemon1.get_Hp() << "HP." << endl;
+    water_Move3.water_Move3(); //to make the function work for the moves, we must call it first like this
+    cout << Pokemon1.get_Name() << " has been hit with "<< water_Move3.get_Move_Name() << endl << Pokemon1.get_Name() << " had " << Pokemon1.get_Hp() << "HP." << endl;
 
     //method to calculate the new hp of the pokemon inputtting the orginal hp and the damage the move does (hard coded the damnage normally will have to fetch it from the pokemon moves from whatever move the user choses but the code is not finished yet so i used 50 for now)
-    new_Hp = attack(Pokemon1.get_Hp(),normal_Move1.get_Damage());
+    new_Hp = attack(Pokemon1.get_Hp(),water_Move3.get_Damage());
 
     //set the new hp of the pokemon 
     Pokemon1.set_Hp(new_Hp);
 
     //printing out the outcome
     cout << Pokemon1.get_Name() << " now has " << new_Hp << "HP." << endl;
+    }
+   
+    }
+    
 
     cout << endl;
     Pokemon1.print_stats();
