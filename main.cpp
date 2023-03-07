@@ -24,11 +24,6 @@ int main()
     
     //declare objects in main to be able to use their functions
     Player player;
-<<<<<<< HEAD
-    Electric electric_Move1;
-    Normal normal_Move1;
-    Water water_Move3;
-=======
     Dragon dragon;
 >>>>>>> 798d0a77e51f236364bec0c01c0350b32a210156
     
@@ -105,7 +100,6 @@ int main()
 
     //method to calculate the new hp of the pokemon inputtting the orginal hp and the damage the move does (hard coded the damnage normally will have to fetch it from the pokemon moves from whatever move the user choses but the code is not finished yet so i used 50 for now)
     new_Hp = attack(Pokemon1.get_Hp(),50);
->>>>>>> 798d0a77e51f236364bec0c01c0350b32a210156
 
     //set the new hp of the pokemon 
     Pokemon1.set_Hp(new_Hp);
