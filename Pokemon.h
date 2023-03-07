@@ -1,5 +1,3 @@
-#ifndef POKEMON_H
-#define POKEMON_H
 #include <iostream>
 #include "Pokemon_moves.h"
 #include <fstream> //used for files
@@ -18,14 +16,13 @@ public:
     int counter = 0;
     string Pokemon_Name;
     vector <string> Pokemon_Names;
-    vector <string> Electric_type {"Picachu", "Luxray", "Electrabuzz"};
-    vector <string> Normal_type{"Mewtwo", "Snorlax", "Jigglypuff", "Pidgeot", "Butterfree", "Eevee"};
-    vector <string> Dragon_type{"Charzard", "Infernape", "Dragonite", "Axew"};
-    vector <string> Water_type{"Puplip", "Oshawott", "Magikarp"};
-    vector <string> Grass_type{"Snivy", "Bulbasaur", "Turtwig"};
+    vector <string> Electric_type;
+    vector <string> Normal_type;
+    vector <string> Dragon_type;
+    vector <string> Water_type;
+    vector <string> Grass_type;
 
     
-
     //creates the class
     NPC()
     {
@@ -79,6 +76,33 @@ public:
         //temp stores the random pokemon that is picked from the vector
         temp = Pokemon_Names[randomInt];
 
+        //find out if the poekmone is a certain type, if so add to correct vector
+        if(temp == "Picachu" || temp == "Luxray" || temp == "Electrabuzz" )
+        {
+            cout << temp << " is Electric" << endl;
+            Electric_type.emplace_back(Pokemon_Name);
+        }
+        else if( temp == "Mewtwo" || temp == "Snorlax" || temp == "Jigglypuff" || temp == "Pidgeot" || temp == "Butterfree" || temp == "Eevee")
+        {
+            cout << temp << " is Normal" << endl;
+            Normal_type.emplace_back(Pokemon_Name);
+        }
+        else if( temp == "Charzard" || temp == "Infernape"  || temp == "Dragonite" || temp == "Axew")
+        {
+            cout << temp << " is Dragon" << endl;
+            Dragon_type.emplace_back(Pokemon_Name);
+        }
+        else if( temp == "Puplip" || temp == "Oshawott" || temp == "Magikarp")
+        {
+            cout << temp << " is Water" << endl;
+            Water_type.emplace_back(Pokemon_Name);
+        }
+        else if( temp == "Snivy" ||  temp == "Bulbasaur" ||  temp == "Turtwig")
+        {
+            cout << temp << " is Grass" << endl;
+            Grass_type.emplace_back(Pokemon_Name);
+        }
+    
         //for loop to remove the names of the pokemon that have already been chosen so there is no repeat (DOES NOT WORK ATM)
         for(int i = 0; i < 8; i++)
         {
@@ -191,5 +215,5 @@ void pokemon_type()
     }
     
 };   
-#endif
+
 

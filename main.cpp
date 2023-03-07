@@ -2,7 +2,7 @@
 #include <string>
 #include <random>
 #include "Pokemon.h"
-
+#include "Pokemon_moves.h"
 #include "battles.h"
 using namespace std;
 
@@ -25,7 +25,7 @@ int main()
     //declare objects in main to be able to use their functions
     Player player;
     Dragon dragon;
->>>>>>> 798d0a77e51f236364bec0c01c0350b32a210156
+    
     
     // the random generator, generating a random number
     int randomInt = d(rng);
@@ -63,12 +63,13 @@ int main()
 //all works if ife uses his code on pokemon_moves
     string move;
     int damage;
+    dragon.dragon_Move1();
 
-    move = dragon.get_move2_name();
+    move = dragon.get_Move_Name();
 
     cout << endl;
 
-    damage = dragon.get_move1_damage();
+    damage = dragon.get_Damage();
 
     cout << "The move is " << move << endl;
     cout << damage;
@@ -80,22 +81,12 @@ int main()
 
     while(new_Hp > 0)
     {
-
-    if(water_Move3.counter3 <= 0 )
-    {
-        cout << "This move has been exhaused!" << endl;
-        exit(0);
-    }
-    else
-    {
+    dragon.dragon_Move1();
     //checking getters are working 
-<<<<<<< HEAD
-    water_Move3.water_Move3(); //to make the function work for the moves, we must call it first like this
-    cout << Pokemon1.get_Name() << " has been hit with "<< water_Move3.get_Move_Name() << endl << Pokemon1.get_Name() << " had " << Pokemon1.get_Hp() << "HP." << endl;
+    cout << Pokemon1.get_Name() << " has been hit with "<< dragon_Move1.get_Move_Name() << endl << Pokemon1.get_Name() << " had " << Pokemon1.get_Hp() << "HP." << endl;
 
     //method to calculate the new hp of the pokemon inputtting the orginal hp and the damage the move does (hard coded the damnage normally will have to fetch it from the pokemon moves from whatever move the user choses but the code is not finished yet so i used 50 for now)
-    new_Hp = attack(Pokemon1.get_Hp(),water_Move3.get_Damage());
-=======
+    new_Hp = attack(Pokemon1.get_Hp(),dragon_Move1.get_Damage());
     cout << Pokemon1.get_Name() << " has been hit with zippy zap!" <<endl << Pokemon1.get_Name() << " had " << Pokemon1.get_Hp() << "HP." << endl;
 
     //method to calculate the new hp of the pokemon inputtting the orginal hp and the damage the move does (hard coded the damnage normally will have to fetch it from the pokemon moves from whatever move the user choses but the code is not finished yet so i used 50 for now)
@@ -106,7 +97,7 @@ int main()
 
     //printing out the outcome
     cout << Pokemon1.get_Name() << " now has " << new_Hp << "HP." << endl;
-    }
+    
    
     }
     
