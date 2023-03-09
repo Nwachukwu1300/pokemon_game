@@ -394,8 +394,8 @@ public:
     int counter1;
     int counter2;
     int counter3;
-
-    Fighting() 
+    
+    Fighting()
     {
         move_name = "name";
         damage = 0;
@@ -403,40 +403,135 @@ public:
         counter2 = 3;
         counter3 = 1;
     }
-
-void fightingMove1() 
-{
+    
+    void fightingMove1()
+    {
         move_name = "Karate chop";
         damage = 10;
         counter1 = counter1 - 1;
     }
-
-    void fightingMove2() 
+    
+    void fightingMove2()
     {
         move_name = "Brick break";
         damage = 25;
         counter2 = counter2 - 1;
     }
-
+    
     void fightingMove3()
-     {
+    {
         move_name = "Superpower";
         damage = 90;
         counter3 = counter3 - 1;
     }
-
+    
     
     //getters
     int get_Damage()
     {
         return damage;
     }
-
+    
     string get_Move_Name()
     {
         return move_name;
     }
 
+};
+
+class flying{
+public:
+    string move_name;
+    int damage;
+    int counter1;
+    int counter2;
+    int counter3;
+    
+    flying()
+    {
+        move_name = "name";
+        damage = 0;
+        counter1 = 3;
+        counter2 = 1;
+        counter3 = 5;
+    }
+    
+    void FlyingMove1(){
+        move_name = "Feather Dance";
+        damage = 10;
+        counter1 = counter1 - 1;
+    }
+    
+    void FlyingMove2(){
+        move_name = "Supersonic Skystrike";
+        damage = 90;
+        counter2 = counter2 -1;
+    }
+    
+    void FlyingMove3(){
+        move_name = "Peck";
+        damage = 35;
+        counter3 = counter3 - 1;
+        
+    }
+    
+    //getters
+    int get_Damage()
+    {
+        return damage;
+    }
+    
+    string get_Move_Name()
+    {
+        return move_name;
+    }
+};
+
+class fire{
+public:
+    string move_name;
+    int damage;
+    int counter1;
+    int counter2;
+    int counter3;
+    
+    fire()
+    {
+        move_name = "name";
+        damage = 0;
+        counter1 = 3;
+        counter2 = 3;
+        counter3 = 1;
+    }
+    
+    void FireMove1(){
+        move_name = "Bitter Blade";
+        damage = 15;
+        counter1 = counter1 - 1;
+    }
+    
+    void FireMove2(){
+        move_name = "Sacred Fire";
+        damage = 45;
+        counter2 = counter2 - 1;
+    }
+    
+    void FireMove3(){
+        move_name = "Fusion Flare";
+        damage = 90;
+        counter3 = counter3 - 1;
+    }
+    
+    //getters
+    int get_Damage()
+    {
+        return damage;
+    }
+    
+    string get_Move_Name()
+    {
+        return move_name;
+    }
 };
 
 
