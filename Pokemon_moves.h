@@ -1,4 +1,3 @@
-#define POKEMON_MOVES_H
 #include <iostream>
 using namespace std;
 class Electric
@@ -6,118 +5,60 @@ class Electric
 public:
     string move_name;
     int damage;
-    int counter1;
-    int counter2;
-    int counter3;
 
     Electric()
     {
         move_name = "name";
         damage = 0;
-        counter1 = 3;
-        counter2 = 3;
-        counter3 = 1;
     }
 
-    void electric_Move1()
-    {
-        move_name = "Zippy zap";
-        damage = 20;
-        counter1 = counter1 - 1;
-    }
 
-    void electric_Move2()
-    {
-        move_name = "Thunder punch";
-        damage = 33;
-        counter2 = counter2 - 1;
-    }
-
-    void electric_Move3()
-    {
-        move_name = "Wild charge";
-        damage = 70;
-        counter3 = counter3 - 1;
-    }
-
-    //getters
-    int get_Damage()
-    {
-        return damage;
-    }
-
-    string get_Move_Name()
-    {
-        return move_name;
-    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                            Getters
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Electric move 1 getters//
-int get_move1_damage()
+int get_Damage()
 {
-    electric_Move1();
     return damage;
 }
 
-string get_move1_name()
+string get_Move_Name()
 {
-    electric_Move1();
     return move_name;
 }
-
-
-//Electric move 2 getters//
-int get_move2_damage()
-{
-    electric_Move2();
-    return damage;
-}
-
-string get_move2_name()
-{
-    electric_Move2();
-    return move_name;
-}
-
-
-
-//Electric move 3 getters//
-int get_move3_damage()
-{
-    electric_Move3();
-    return damage;
-}
-
-string get_move3_name()
-{
-    electric_Move3();
-    return move_name;
-}
-};
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    void electric_Move1()
+    {
+        move_name = "Zippy zap";
+        damage = 50;
+    }
+
+    void electric_Move2()
+    {
+        move_name = "Thunder punch";
+        damage = 75;
+    }
+
+    void electric_Move3()
+    {
+        move_name = "Wild charge";
+        damage = 90;
+    }
+
+};
 
 class Normal
 {
 public:
     string move_name;
     int damage;
-    int counter1; 
-    int counter2;
-    int counter3;
-    int counter4;
 
     Normal()
     {
         move_name = "name";
         damage = 0;
-        counter1 = 3;
-        counter2 = 5;
-        counter3 = 2;
-        counter4 = 1;
     }
 
 
@@ -126,413 +67,184 @@ public:
 //                                                            Getters
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+int get_Damage()
+{
+    return damage;
+}
+
+string get_Move_Name()
+{
+    return move_name;
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void normal_Move1()
     {
         move_name = "Vice grip";
-        damage = 30;
-        counter1 = counter1 - 1;
+        damage = 55;
     }
 
     void normal_Move2()
     {
         move_name = "Slash";
-        damage = 10;
-        counter2 = counter2 - 1;
-
+        damage = 70;
     }
 
     void normal_Move3()
     {
         move_name = "Rock climb";
-        damage = 45;
-        counter3 = counter3 - 1;
+        damage = 90;
     }
     void normal_Move4()
     {
         move_name = "Judgement";
-        damage = 90;
-        counter4 = counter4 - 1;
+        damage = 100;
     }
 
-    //getters
-    int get_Damage()
-    {
-        return damage;
-    }
-
-    string get_Move_Name()
-    {
-        return move_name;
-    }
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                            Getters
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//Normal move 1 getters//
-int get_move1_damage()
-{
-    normal_Move1();
-    return damage;
-}
-
-string get_move1_name()
-{
-    normal_Move1();
-    return move_name;
-}
-
-
-//Normal move 2 getters//
-int get_move2_damage()
-{
-    normal_Move2();
-    return damage;
-}
-
-string get_move2_name()
-{
-    normal_Move2();
-    return move_name;
-}
-
-
-
-//Normal move 3 getters//
-int get_move3_damage()
-{
-    normal_Move3();
-    return damage;
-}
-
-string get_move3_name()
-{
-    normal_Move3();
-    return move_name;
-}
-
-
-
-//Normal move 4 getters//
-int get_move4_damage()
-{
-    normal_Move4();
-    return damage;
-}
-
-string get_move4_name()
-{
-    normal_Move4();
-    return move_name;
-}
 };
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 class Dragon
 {
 public:
     string move_name;
     int damage;
-    int counter1;
-    int counter2;
-    int counter3;
 
     Dragon()
     {
         move_name = "name";
         damage = 0;
-        counter1 = 3;
-        counter2 = 1;
-        counter3 = 3;
     }
 
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                            Getters
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int get_Damage()
+{
+    return damage;
+}
+
+string get_Move_Name()
+{
+    return move_name;
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void dragon_Move1()
     {
         move_name = "Dual chop";
-        damage = 20;
-        counter1 = counter1 - 1;
+        damage = 40;
     }
 
     void dragon_Move2()
     {
         move_name = "Dragon claw";
         damage = 80;
-        counter2 = counter2 - 1;
     }
 
     void dragon_Move3()
     {
         move_name = "Dragon hammer";
-        damage = 40;
-        counter3 = counter3 - 1;
-    }
-
-    //getters
-    int get_Damage()
-    {
-        return damage;
-    }
-
-    string get_Move_Name()
-    {
-        return move_name;
+        damage = 90;
     }
 
 };
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class Water 
-{
+class Water {
 public:
     string move_name;
     int damage;
-    int counter1;
-    int counter2;
-    int counter3;
 
-    Water() 
-    {
+    Water() {
         move_name = "name";
         damage = 0;
-        counter1 = 4;
-        counter2 = 3;
-        counter3 = 1;
     }
 
-    void water_Move1() 
-    {
+    // Getters
+    int get_Damage() {
+        return damage;
+    }
+
+    string get_Move_Name() {
+        return move_name;
+    }
+
+    void water_Move1() {
         move_name = "Water gun";
-        damage = 25;
-        counter1 = counter1 - 1;
-    }
-
-    void water_Move2()
-    {
-        move_name = "Surf";
         damage = 40;
-        counter2 = counter2 - 1;
     }
 
-    void water_Move3() 
-    {
+    void water_Move2() {
+        move_name = "Surf";
+        damage = 70;
+    }
+
+    void water_Move3() {
         move_name = "Hydro pump";
-        damage = 85;
-        counter3 = counter3 - 1;
-    }
-
-    //getters
-    int get_Damage()
-    {
-        return damage;
-    }
-
-    string get_Move_Name()
-    {
-        return move_name;
+        damage = 90;
     }
 };
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class Grass 
-{
+
+class Grass {
 public:
     string move_name;
     int damage;
-    int counter1;
-    int counter2;
-    int counter3;
 
-    Grass() 
-    {
+    Grass() {
         move_name = "name";
         damage = 0;
-        counter1 = 3;
-        counter2 = 1;
-        counter3 = 5;
     }
 
-    void grass_Move1() 
-    {
+    // Getters
+    int get_Damage() {
+        return damage;
+    }
+
+    string get_Move_Name() {
+        return move_name;
+    }
+
+    void grass_Move1() {
         move_name = "Vine whip";
-        damage = 25;
-        counter1 = counter1 - 1;
-    }
-
-    void grass_Move2() 
-    {
-        move_name = "Razor leaf";
-        damage = 90;
-        counter2 = counter2 - 1;
-    }
-
-    void grass_Move3()
-    {
-        move_name = "Solar beam";
-        damage = 10;
-        counter3 = counter3 - 1;
-    }
-
-    //getters
-    int get_Damage()
-    {
-        return damage;
-    }
-
-    string get_Move_Name()
-    {
-        return move_name;
-    }
-};
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class Fighting 
-{
-public:
-    string move_name;
-    int damage;
-    int counter1;
-    int counter2;
-    int counter3;
-    
-    Fighting()
-    {
-        move_name = "name";
-        damage = 0;
-        counter1 = 7;
-        counter2 = 3;
-        counter3 = 1;
-    }
-    
-    void fightingMove1()
-    {
-        move_name = "Karate chop";
-        damage = 10;
-        counter1 = counter1 - 1;
-    }
-    
-    void fightingMove2()
-    {
-        move_name = "Brick break";
-        damage = 25;
-        counter2 = counter2 - 1;
-    }
-    
-    void fightingMove3()
-    {
-        move_name = "Superpower";
-        damage = 90;
-        counter3 = counter3 - 1;
-    }
-    
-    
-    //getters
-    int get_Damage()
-    {
-        return damage;
-    }
-    
-    string get_Move_Name()
-    {
-        return move_name;
-    }
-
-};
-
-class flying{
-public:
-    string move_name;
-    int damage;
-    int counter1;
-    int counter2;
-    int counter3;
-    
-    flying()
-    {
-        move_name = "name";
-        damage = 0;
-        counter1 = 3;
-        counter2 = 1;
-        counter3 = 5;
-    }
-    
-    void FlyingMove1(){
-        move_name = "Feather Dance";
-        damage = 10;
-        counter1 = counter1 - 1;
-    }
-    
-    void FlyingMove2(){
-        move_name = "Supersonic Skystrike";
-        damage = 90;
-        counter2 = counter2 -1;
-    }
-    
-    void FlyingMove3(){
-        move_name = "Peck";
-        damage = 35;
-        counter3 = counter3 - 1;
-        
-    }
-    
-    //getters
-    int get_Damage()
-    {
-        return damage;
-    }
-    
-    string get_Move_Name()
-    {
-        return move_name;
-    }
-};
-
-class fire{
-public:
-    string move_name;
-    int damage;
-    int counter1;
-    int counter2;
-    int counter3;
-    
-    fire()
-    {
-        move_name = "name";
-        damage = 0;
-        counter1 = 3;
-        counter2 = 3;
-        counter3 = 1;
-    }
-    
-    void FireMove1(){
-        move_name = "Bitter Blade";
-        damage = 15;
-        counter1 = counter1 - 1;
-    }
-    
-    void FireMove2(){
-        move_name = "Sacred Fire";
         damage = 45;
-        counter2 = counter2 - 1;
     }
-    
-    void FireMove3(){
-        move_name = "Fusion Flare";
+
+    void grass_Move2() {
+        move_name = "Razor leaf";
+        damage = 70;
+    }
+
+    void grass_Move3() {
+        move_name = "Solar beam";
         damage = 90;
-        counter3 = counter3 - 1;
-    }
-    
-    //getters
-    int get_Damage()
-    {
-        return damage;
-    }
-    
-    string get_Move_Name()
-    {
-        return move_name;
     }
 };
 
+class Fighting {
+public:
+    string move_name;
+    int damage;
 
+    Fighting() {
+        move_name = "name";
+        damage = 0;
+    }
 
+    //
+
+void fightingMove1() {
+        move_name = "Karate chop";
+        damage = 50;
+    }
+
+    void fightingMove2() {
+        move_name = "Brick break";
+        damage = 75;
+    }
+
+    void fightingMove3() {
+        move_name = "Superpower";
+        damage = 120;
+    }
+};
