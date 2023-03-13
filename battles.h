@@ -24,6 +24,45 @@ int attack(int pokemon_Hp, int damage_Done)
     return new_Hp;
 }
 
+void pokemonBattle()
+{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* A FUNCTION THAT GETS HOW EFFECTIVE A MOVE TYPE IS AGAINST ANOTHER POKEMON TYPE. 
 double calculate_effectiveness(string move_type, string defender_type) {

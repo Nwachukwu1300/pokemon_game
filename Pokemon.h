@@ -208,7 +208,6 @@ void pokemon_type()
     {
         cout << "Name: " << Pokemon_Name << endl;
         cout << "Hp: " << pokemon_Hp << endl;
-
     }
     
 };   

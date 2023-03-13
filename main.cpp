@@ -33,27 +33,6 @@ int main()
     Pokemon1.pick_Random_Pokemon(randomInt); //calling the method to picka random pokemon to be assigned to the object
     Pokemon1.print_stats(); //just a test to see if works (will delete soon)
 
-    randomInt = d(rng);
-    NPC Pokemon2;
-    Pokemon2.pick_Random_Pokemon(randomInt);
-    Pokemon2.print_stats();
-
-    randomInt = d(rng);
-    NPC Pokemon3;
-    Pokemon3.pick_Random_Pokemon(randomInt);
-    Pokemon3.print_stats();
-
-    randomInt = d(rng);
-    NPC Pokemon4;
-    Pokemon4.pick_Random_Pokemon(randomInt);
-    Pokemon4.print_stats();
-
-    randomInt = d(rng);
-    NPC Pokemon5;
-    Pokemon5.pick_Random_Pokemon(randomInt);
-    Pokemon5.print_stats();
-
-
     cout << endl;
 
     //just testing a quick battle feature wont be done in main. Just testing whislt i wait (wonderful)
@@ -74,7 +53,10 @@ int main()
 
     cout << endl;
     Pokemon1.print_stats();
-   
+    Pokemon1.set_Heal_Reset(); //heal the pokemon back to 100hp after the battle.
     cout << endl;
+
+
+    pokemonBattle(); //new
     return 0;
 }
