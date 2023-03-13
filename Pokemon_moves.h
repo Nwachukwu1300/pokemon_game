@@ -252,20 +252,20 @@ public:
         counter3 = 1;
     }
 
-    void fightingMove1()
+    void fighting_Move1()
     {
         move_name = "Karate chop";
         damage = 10;
         counter1 = counter1 - 1;
     }
-    void fightingMove2()
+    void fighting_Move2()
     {
         move_name = "Brick break";
         damage = 25;
         counter2 = counter2 - 1;
     }
 
-    void fightingMove3()
+    void fighting_Move3()
     {
         move_name = "Superpower";
         damage = 90;
@@ -305,21 +305,21 @@ public:
         counter3 = 5;
     }
 
-    void FlyingMove1()
+    void flying_Move1()
     {
         move_name = "Feather Dance";
         damage = 10;
         counter1 = counter1 - 1;
     }
 
-    void FlyingMove2()
+    void flying_Move2()
     {
         move_name = "Supersonic Skystrike";
         damage = 90;
         counter2 = counter2 -1;
     }
 
-    void FlyingMove3(){
+    void flying_Move3(){
         move_name = "Peck";
         damage = 35;
         counter3 = counter3 - 1;
@@ -356,21 +356,21 @@ public:
         counter3 = 1;
     }
 
-    void FireMove1()
+    void fire_Move1()
     {
         move_name = "Bitter Blade";
         damage = 15;
         counter1 = counter1 - 1;
     }
 
-    void FireMove2()
+    void fire_Move2()
     {
         move_name = "Sacred Fire";
         damage = 45;
         counter2 = counter2 - 1;
     }
 
-    void FireMove3()
+    void fire_Move3()
     {
         move_name = "Fusion Flare";
         damage = 90;

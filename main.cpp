@@ -10,23 +10,21 @@ using namespace std;
 class Player
 {
     public:
-    int poke_Balls = 0;
+    int poke_Balls = 3;
     int pokemon_Count = 0;
-    string player_Name = "";
+    string player_Name = "Ash";
 };
 
 int main()
 {
+    //declare objects in main to be able to use their functions
+    Player player;
 
     //random generator to create a random number
     mt19937 rng(time(0)); // https://stackoverflow.com/questions/57135552/how-can-i-set-range-to-the-random-library
     uniform_int_distribution d(0, 8); // The range of the length of pokemon file (hardcoded must be updated if more pokemon are added)
     
-    //declare objects in main to be able to use their functions
-    Player player;
-    Electric electric_Move1;
-    Normal normal_Move1;
-    
+
     // the random generator, generating a random number
     int randomInt = d(rng);
     NPC Pokemon1;   //creating the first object
@@ -35,28 +33,33 @@ int main()
 
     cout << endl;
 
-    //just testing a quick battle feature wont be done in main. Just testing whislt i wait (wonderful)
-    int new_Hp = 0;
-
-    //checking getters are working 
-    normal_Move1.normal_Move1(); //to make the function work for the moves, we must call it first like this
-    cout << Pokemon1.get_Name() << " has been hit with "<< normal_Move1.get_Move_Name() << endl << Pokemon1.get_Name() << " had " << Pokemon1.get_Hp() << "HP." << endl;
-
-    //method to calculate the new hp of the pokemon inputtting the orginal hp and the damage the move does (hard coded the damnage normally will have to fetch it from the pokemon moves from whatever move the user choses but the code is not finished yet so i used 50 for now)
-    new_Hp = attack(Pokemon1.get_Hp(),normal_Move1.get_Damage());
-
-    //set the new hp of the pokemon 
-    Pokemon1.set_Hp(new_Hp);
-
-    //printing out the outcome
-    cout << Pokemon1.get_Name() << " now has " << new_Hp << "HP." << endl;
+    //the random generator, generating a random number
+    randomInt = d(rng);
+    NPC Pokemon2;   //creating the first object
+    Pokemon2.pick_Random_Pokemon(randomInt); //calling the method to picka random pokemon to be assigned to the object
+    Pokemon2.print_stats(); //just a test to see if works (will delete soon)
 
     cout << endl;
-    Pokemon1.print_stats();
-    Pokemon1.set_Heal_Reset(); //heal the pokemon back to 100hp after the battle.
+
+    // the random generator, generating a random number
+    randomInt = d(rng);
+    NPC Pokemon3;   //creating the first object
+    Pokemon3.pick_Random_Pokemon(randomInt); //calling the method to picka random pokemon to be assigned to the object
+    Pokemon3.print_stats(); //just a test to see if works (will delete soon)
+
     cout << endl;
 
+    
+    //pokemon generated for the AI to use 
+    randomInt = d(rng);
+    NPC Pokemon4;  
+    Pokemon4.pick_Random_Pokemon(randomInt); 
+    Pokemon4.print_stats();
 
-    pokemonBattle(); //new
+    cout << endl;
+
+    //pass in all the values needed for the battle to commence (playername and poke_balls are currently local public variables but they wont be local when storylines file is created)
+    pokemonBattle(Pokemon1.get_Name(),Pokemon1.get_Hp(),Pokemon2.get_Name(),Pokemon2.get_Hp(), Pokemon3.get_Name(),Pokemon3.get_Hp(),
+                  Pokemon4.get_Name(), Pokemon4.get_Hp(),player.player_Name ,player.poke_Balls); 
     return 0;
 }

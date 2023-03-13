@@ -18,6 +18,7 @@ public:
     vector <string> Electric_type;
     vector <string> Normal_type;
     vector <string> Dragon_type;
+    vector <string> Fire_type;
     vector <string> Water_type;
     vector <string> Grass_type;
 
@@ -81,15 +82,20 @@ public:
             cout << temp << " is Electric" << endl;
             Electric_type.emplace_back(Pokemon_Name);
         }
-        else if( temp == "Mewtwo" || temp == "Snorlax" || temp == "Jigglypuff" || temp == "Pidgeot" || temp == "Butterfree" || temp == "Eevee")
+        else if(  temp == "Lucario" || temp == "Mewtwo" || temp == "Snorlax" || temp == "Jigglypuff" || temp == "Pidgeot" || temp == "Butterfree" || temp == "Eevee")
         {
             cout << temp << " is Normal" << endl;
             Normal_type.emplace_back(Pokemon_Name);
         }
-        else if( temp == "Charzard" || temp == "Infernape"  || temp == "Dragonite" || temp == "Axew")
+        else if( temp == "Charzard" || temp == "Dragonite" || temp == "Axew")
         {
             cout << temp << " is Dragon" << endl;
             Dragon_type.emplace_back(Pokemon_Name);
+        }
+        else if( temp == "Infernape" || temp == "Tepig")
+        {
+            cout << temp << " is Fire" << endl;
+            Fire_type.emplace_back(Pokemon_Name);
         }
         else if( temp == "Puplip" || temp == "Oshawott" || temp == "Magikarp")
         {
@@ -152,6 +158,8 @@ void set_Heal_Reset()
 {
     //resets the pokemons hp to 100 to be used after a battle to "heal" the pokemon
     pokemon_Hp = 100;
+    cout << endl;
+    cout << "*POKEMON HAS BEEN HEALED*";
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -174,33 +182,6 @@ void set_Heal_Reset()
     
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*
-void pokemon_type()
-{
-    if (count(Electric_type.begin(), Electric_type.end(), Pokemon_Name))
-    {
-        cout << "Pokemon is electric"<< endl;
-        
-    }
-    else if (count(Normal_type.begin(), Normal_type.end(), Pokemon_Name))
-    {
-        cout << "Pokemon is Normal"<< endl;
-    }
-    else if (count(Dragon_type.begin(), Dragon_type.end(), Pokemon_Name))
-    {
-        cout << "Pokemon is a Dragon"<< endl;
-    }
-    else if (count(Grass_type.begin(), Grass_type.end(), Pokemon_Name))
-    {
-        cout << "Pokemon is Grass"<< endl;
-    }
-    else if (count(Water_type.begin(), Water_type.end(), Pokemon_Name))
-    {
-        cout << "Pokemon is Water"<< endl;
-    }
-                
-}
-*/
 
     
     //prints the stats of the pokemon. (later could add the pokemon type (Fire,water etc...))
@@ -211,5 +192,3 @@ void pokemon_type()
     }
     
 };   
-
-

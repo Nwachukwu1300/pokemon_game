@@ -24,35 +24,45 @@ int attack(int pokemon_Hp, int damage_Done)
     return new_Hp;
 }
 
-void pokemonBattle()
+
+//procedure to simulate the battle happening. (The variables we have not used yet look like errors but theyre not. Code still runs)
+void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int hp3, string ai_Name, int ai_Hp, string player_Name, int poke_Balls)
 {
+    //declare local variables
+    string answer = "";
+
+    //declare moves from Pokemon_moves.h
+    Electric electric_Move1;
+    Electric electric_Move2;
+    Electric electric_Move3;
+    Fire fire_Move1;
+    Fire fire_Move2;
+    Fire fire_Move3;
+    
+    //call the moves (from Pokemon_moves) so that the individual variables are assigned
+    electric_Move1.electric_Move1();
+    electric_Move2.electric_Move2();
+    electric_Move3.electric_Move3();
+    fire_Move1.fire_Move1();
+    fire_Move2.fire_Move2();
+    fire_Move3.fire_Move3();
+
+    cout << player_Name << " is battling Trainer Lucy!" << endl; 
+
+    cout << player_Name << ": " << name << " I choose you!"<< endl;
+    cout << name << " has been summoned..." << endl << endl;
+
+    cout << "Would you like to "<< endl << "1. ATTACK "<< endl << "2. SWITCH POKEMON" << endl << "3. Catch Pokemon" << endl;
+    cout << "Choice: ";
+    cin >> answer;
+
+
+
+
+
+
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
