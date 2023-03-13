@@ -15,9 +15,13 @@ public:
     int counter = 0;
     string Pokemon_Name;
     vector <string> Pokemon_Names;
+    vector <string> Electric_type;
+    vector <string> Normal_type;
+    vector <string> Dragon_type;
+    vector <string> Water_type;
+    vector <string> Grass_type;
 
     
-
     //creates the class
     NPC()
     {
@@ -71,6 +75,33 @@ public:
         //temp stores the random pokemon that is picked from the vector
         temp = Pokemon_Names[randomInt];
 
+        //find out if the poekmone is a certain type, if so add to correct vector
+        if(temp == "Picachu" || temp == "Luxray" || temp == "Electrabuzz" )
+        {
+            cout << temp << " is Electric" << endl;
+            Electric_type.emplace_back(Pokemon_Name);
+        }
+        else if( temp == "Mewtwo" || temp == "Snorlax" || temp == "Jigglypuff" || temp == "Pidgeot" || temp == "Butterfree" || temp == "Eevee")
+        {
+            cout << temp << " is Normal" << endl;
+            Normal_type.emplace_back(Pokemon_Name);
+        }
+        else if( temp == "Charzard" || temp == "Infernape"  || temp == "Dragonite" || temp == "Axew")
+        {
+            cout << temp << " is Dragon" << endl;
+            Dragon_type.emplace_back(Pokemon_Name);
+        }
+        else if( temp == "Puplip" || temp == "Oshawott" || temp == "Magikarp")
+        {
+            cout << temp << " is Water" << endl;
+            Water_type.emplace_back(Pokemon_Name);
+        }
+        else if( temp == "Snivy" ||  temp == "Bulbasaur" ||  temp == "Turtwig")
+        {
+            cout << temp << " is Grass" << endl;
+            Grass_type.emplace_back(Pokemon_Name);
+        }
+    
         //for loop to remove the names of the pokemon that have already been chosen so there is no repeat (DOES NOT WORK ATM)
         for(int i = 0; i < 8; i++)
         {
@@ -93,8 +124,9 @@ public:
         Pokemon_Name = temp; 
 
         return randomInt;
+        
+       
     }
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                            Setters
@@ -115,6 +147,12 @@ int set_Hp(int HP)
 
     return pokemon_Hp;
 }
+
+void set_Heal_Reset()
+{
+    //resets the pokemons hp to 100 to be used after a battle to "heal" the pokemon
+    pokemon_Hp = 100;
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -133,13 +171,37 @@ int set_Hp(int HP)
         //retunn the pokemon hp on request
         return pokemon_Hp;
     }
+    
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    
-    
-    
-    
-    
+/*
+void pokemon_type()
+{
+    if (count(Electric_type.begin(), Electric_type.end(), Pokemon_Name))
+    {
+        cout << "Pokemon is electric"<< endl;
+        
+    }
+    else if (count(Normal_type.begin(), Normal_type.end(), Pokemon_Name))
+    {
+        cout << "Pokemon is Normal"<< endl;
+    }
+    else if (count(Dragon_type.begin(), Dragon_type.end(), Pokemon_Name))
+    {
+        cout << "Pokemon is a Dragon"<< endl;
+    }
+    else if (count(Grass_type.begin(), Grass_type.end(), Pokemon_Name))
+    {
+        cout << "Pokemon is Grass"<< endl;
+    }
+    else if (count(Water_type.begin(), Water_type.end(), Pokemon_Name))
+    {
+        cout << "Pokemon is Water"<< endl;
+    }
+                
+}
+*/
+
     
     //prints the stats of the pokemon. (later could add the pokemon type (Fire,water etc...))
     void print_stats()
@@ -150,3 +212,5 @@ int set_Hp(int HP)
     }
     
 };   
+
+
