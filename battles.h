@@ -109,44 +109,91 @@ ANOTHER WAY WE CAN DO EFFECTIVENESS PART THIS ONE IS MORE COMPLEX
 
 // https://www.youtube.com/watch?v=GSja2w-HN20 used this to learn about ENUMS//
 namespace Move {
-    enum Type {WATER, GRASS, NORMAL, FIGHTING, ELECTRIC, DRAGON};
+    enum Type {water, grass, normal, fighting, electric, dragon, fire, flying};
 }
-
 namespace Defender {
-    enum Type {WATER, GRASS, NORMAL, FIGHTING, ELECTRIC, DRAGON};
+    enum Type {water, grass, normal, fighting, electric, dragon, fire, flying};
 }
-
 double calculate_effectiveness(Move::Type move_type, Defender::Type defender_type) {
     double effectiveness = 1.0;
     switch(move_type) {
-        case Move::WATER:
-            if(defender_type == Defender::GRASS) {
+        case Move::water:
+            if(defender_type == Defender::grass || Defender::fire) {
                 effectiveness = 2.0;
-            } else if(defender_type == Defender::NORMAL || defender_type == Defender::WATER || defender_type == Defender::FIGHTING) {
+            } else if(defender_type == Defender::normal || defender_type == Defender::water || defender_type == Defender::fighting || defender_type ==Defender::flying) {
                 effectiveness = 0.5;
-            } else if(defender_type == Defender::DRAGON || defender_type == Defender::ELECTRIC) {
+            } else if(defender_type == Defender::dragon || defender_type == Defender::electric) {
                 effectiveness = 0.25;
             }
             break;
-        case Move::GRASS:
-            // similar logic as for water type
+        case Move::grass:
+            if(defender_type == Defender::electric || defender_type == Defender::flying ) {
+                effectiveness = 2.0;
+            } else if(defender_type == Defender:: normal|| defender_type == Defender:: water|| defender_type == Defender::fighting|| defender_type == Defender::grass){
+                effectiveness = 0.5;
+            } else if(defender_type == Defender:: fire|| defender_type == Defender::dragon) {
+                effectiveness = 0.25;
+            }
             break;
-        case Move::NORMAL:
-            // logic for normal type
+        case Move::normal:
+            if(defender_type == Defender::fire || defender_type == Defender::flying ) {
+                effectiveness = 2.0;
+            } else if(defender_type == Defender:: normal|| defender_type == Defender:: dragon|| defender_type == Defender::fighting|| defender_type == Defender::grass){
+                effectiveness = 0.5;
+            } else if(defender_type == Defender:: electric|| defender_type == Defender::water) {
+                effectiveness = 0.25;
+            }
             break;
-        case Move::FIGHTING:
-            // logic for fighting type
+        case Move::fighting:
+            if(defender_type == Defender::electric || defender_type == Defender:: grass ) {
+                effectiveness = 2.0;
+            } else if(defender_type == Defender:: normal|| defender_type == Defender:: water|| defender_type == Defender::fighting|| defender_type == Defender::fire){
+                effectiveness = 0.5;
+            } else if(defender_type == Defender:: flying|| defender_type == Defender::dragon) {
+                effectiveness = 0.25;
+            }
             break;
-        case Move::ELECTRIC:
-            // logic for electric type
+        case Move::electric:
+        if(defender_type == Defender:: normal|| defender_type == Defender::flying ) {
+                effectiveness = 2.0;
+            } else if(defender_type == Defender:: electric|| defender_type == Defender:: water|| defender_type == Defender::fighting|| defender_type == Defender::grass){
+                effectiveness = 0.5;
+            } else if(defender_type == Defender:: fire|| defender_type == Defender::dragon) {
+                effectiveness = 0.25;
+            }
             break;
-        case Move::DRAGON:
-            // logic for dragon type
+        case Move::dragon:
+            if(defender_type == Defender::electric || defender_type == Defender::flying ) {
+                effectiveness = 2.0;
+            } else if(defender_type == Defender:: normal|| defender_type == Defender:: electric|| defender_type == Defender::fighting|| defender_type == Defender::grass){
+                effectiveness = 0.5;
+            } else if(defender_type == Defender:: fire|| defender_type == Defender::water) {
+                effectiveness = 0.25;
+            }
+            break;
+        case Move::fire:
+            if(defender_type == Defender::water || defender_type == Defender::flying ) {
+                effectiveness = 2.0;
+            } else if(defender_type == Defender:: normal|| defender_type == Defender:: electric|| defender_type == Defender::fighting|| defender_type == Defender::grass){
+                effectiveness = 0.5;
+            } else if(defender_type == Defender:: fire|| defender_type == Defender::dragon) {
+                effectiveness = 0.25;
+            }
+            break;
+        case Move::flying:
+            if(defender_type == Defender::electric || defender_type == Defender::flying ) {
+                effectiveness = 2.0;
+            } else if(defender_type == Defender:: normal|| defender_type == Defender:: fire|| defender_type == Defender::fighting|| defender_type == Defender::grass){
+                effectiveness = 0.5;
+            } else if(defender_type == Defender:: dragon|| defender_type == Defender::water) {
+                effectiveness = 0.25;
+            }
             break;
         default:
-            // handle invalid move type
+            effectiveness = 0.0;
             break;
     }
     return effectiveness;
 }
+
 */
