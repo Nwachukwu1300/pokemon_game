@@ -127,13 +127,27 @@ void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int h
     }
 };
 
-
-
-
-
-
-
-
+void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType) {
+    if (isWildPokemon) {
+        if (numPokeballs <= 0) {
+            cout << "Error: There are no Pokeballs left" << endl;
+            return;
+        }
+        // To reduce the number of Pokeballs
+        numPokeballs--;
+        // Catch the Pokemon
+        cout << "You caught a wild Pokemon!" << endl;
+    } else {
+        // Pokemon being fought is a trainer's Pokemon
+        if (enemyType == "trainer") {
+            cout << "Error: Cannot catch a trainer's Pokemon" << endl;
+        } else if (enemyType == "pokemon") {
+            cout << "Error: Cannot catch another Pokemon, that's not wild" << endl;
+        } else {
+            cout << "Error: Invalid enemy type" << endl;
+        }
+    }
+}
 
 
 
