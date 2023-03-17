@@ -127,7 +127,7 @@ void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int h
     }
 };
 
-void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType) {
+void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType) {//It has all the conditions needed to catch a pokemon it just doesn't add one to the players set yet. I'm working on it though.  
     if (isWildPokemon) {
         if (numPokeballs <= 0) {
             cout << "Error: There are no Pokeballs left" << endl;
