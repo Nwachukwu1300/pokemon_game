@@ -22,7 +22,7 @@ int main()
 
     //random generator to create a random number
     mt19937 rng(time(0)); // https://stackoverflow.com/questions/57135552/how-can-i-set-range-to-the-random-library
-    uniform_int_distribution d(0, 8); // The range of the length of pokemon file (hardcoded must be updated if more pokemon are added)
+    uniform_int_distribution <int> d(0, 8); // The range of the length of pokemon file (hardcoded must be updated if more pokemon are added)
     
 
     // the random generator, generating a random number
@@ -61,5 +61,6 @@ int main()
     //pass in all the values needed for the battle to commence (playername and poke_balls are currently local public variables but they wont be local when storylines file is created)
     pokemonBattle(Pokemon1.get_Name(),Pokemon1.get_Hp(),Pokemon2.get_Name(),Pokemon2.get_Hp(), Pokemon3.get_Name(),Pokemon3.get_Hp(),
                   Pokemon4.get_Name(), Pokemon4.get_Hp(),player.player_Name ,player.poke_Balls); 
+    
     return 0;
 }

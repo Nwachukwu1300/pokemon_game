@@ -29,7 +29,8 @@ int attack(int pokemon_Hp, int damage_Done)
 void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int hp3, string ai_Name, int ai_Hp, string player_Name, int poke_Balls)
 {
     //declare local variables
-    string answer = "";
+    int answer;
+    int pokemon_choice;
 
     //declare moves from Pokemon_moves.h
     Electric electric_Move1;
@@ -51,18 +52,80 @@ void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int h
 
     cout << player_Name << ": " << name << " I choose you!"<< endl;
     cout << name << " has been summoned..." << endl << endl;
-
+    
+    //While loop used to make sure the player chooses in between 1 and 3
+    while (true)
+    {
     cout << "Would you like to "<< endl << "1. ATTACK "<< endl << "2. SWITCH POKEMON" << endl << "3. Catch Pokemon" << endl;
     cout << "Choice: ";
-    cin >> answer;
+    cin >>  answer;
+    
+        if (answer != 1 || answer != 2 || answer != 3)
+        {
+            cout<<"invalid input, please choose one between the options which are 1, 2 and 3"<<endl;
+            
+        }
+        if (answer == 1 || answer == 2 || answer == 3)
+        {
+            break;
+        }
+    }
 
+    //if statement for option 1
+    if (answer == 1)
+    {
+        cout<<"attacking"<< endl;
+    }
 
+   //if statement for option 2 (swap pokemon) 
+    else if (answer == 2)
+    {
+        while (true)
+        {
+            cout << "These are the pokemons you have:" << endl;
+            cout << "1. " << name << endl;
+            cout << "2. " << name2 << endl;
+            cout << "3. " << name3 << endl;
+            cout << "Which one would you like to use?" << endl;
+            cin >>  pokemon_choice;
+            //While loop to make sure player chooses in between 1 and 3
+            
+                if (pokemon_choice != 1 || pokemon_choice != 2 || pokemon_choice != 3)
+                {
+                    cout<<"invalid input, please choose one between the options which are 1, 2 and 3"<<endl;
+                }
+                
+                if (pokemon_choice == 1 || pokemon_choice == 2 || pokemon_choice == 3)
+                {
+                    break;
+                }
+        }
+    //If statements for pokemon choice
+        if (pokemon_choice == 1)
+        {
+            cout<<"This pokemon is already being used"<<endl;
+        }
 
+        else if (pokemon_choice == 2)
+        {
+        cout << player_Name << ": " << name2 << " I choose you!"<< endl;
+        cout << name2 << " has been summoned..." << endl << endl;
+        }
 
+        else if (pokemon_choice == 3)
+        {
+        cout << player_Name << ": " << name3 << " I choose you!"<< endl;
+        cout << name3 << " has been summoned..." << endl << endl;
+        
+        }
+    }
 
-
-
-}
+    //if statement for option 3
+    else if (answer == 3)
+    {
+        cout<<"Catch pokemon"<<endl;
+    }
+};
 
 
 
