@@ -31,6 +31,7 @@ void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int h
     //declare local variables
     int answer;
     int pokemon_choice;
+    bool is_true = true;
 
     //declare moves from Pokemon_moves.h
     Electric electric_Move1;
@@ -54,20 +55,20 @@ void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int h
     cout << name << " has been summoned..." << endl << endl;
     
     //While loop used to make sure the player chooses in between 1 and 3
-    while (true)
+    while (is_true == true)
     {
     cout << "Would you like to "<< endl << "1. ATTACK "<< endl << "2. SWITCH POKEMON" << endl << "3. Catch Pokemon" << endl;
     cout << "Choice: ";
     cin >>  answer;
     
-        if (answer != 1 || answer != 2 || answer != 3)
-        {
-            cout<<"invalid input, please choose one between the options which are 1, 2 and 3"<<endl;
-            
-        }
         if (answer == 1 || answer == 2 || answer == 3)
         {
-            break;
+            //make is_true false so that when the while loops checks, it doesnt loop again.
+            is_true = false;
+        }
+        else
+        {
+            cout<<"invalid input, please choose one between the options which are 1, 2 and 3"<<endl;
         }
     }
 
