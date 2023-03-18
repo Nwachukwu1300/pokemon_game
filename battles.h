@@ -124,13 +124,15 @@ void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int h
     //if statement for option 3
     else if (answer == 3)
     {
-        cout<<"Catch pokemon"<<endl;
+        catchPokemon();
     }
 };
 
 void catchPokemon(bool is_wild_pokemon, int poke_Balls, string enemyType) {//It has all the conditions needed to catch a pokemon it just doesn't add one to the players set yet. I'm working on it though.  
-    if (is_wild_pokemon) {
-        if (poke_Balls <= 0) {
+    if (is_wild_pokemon) 
+    {
+        if (poke_Balls <= 0)
+        {
             cout << "Error: There are no Pokeballs left" << endl;
             return;
         }
@@ -138,13 +140,19 @@ void catchPokemon(bool is_wild_pokemon, int poke_Balls, string enemyType) {//It 
         poke_Balls--;
         // Catch the Pokemon
         cout << "You caught a wild Pokemon!" << endl;
-    } else {
+    } 
+    else 
+    {
         // Pokemon being fought is a trainer's Pokemon
-        if (enemyType == "trainer") {
+        if (enemyType == "trainer") 
+        {
             cout << "Error: Cannot catch a trainer's Pokemon" << endl;
-        } else if (enemyType == "pokemon") {
+        } else if (enemyType == "pokemon") 
+        {
             cout << "Error: Cannot catch another Pokemon, that's not wild" << endl;
-        } else {
+        } 
+        else 
+        {
             cout << "Error: Invalid enemy type" << endl;
         }
     }
