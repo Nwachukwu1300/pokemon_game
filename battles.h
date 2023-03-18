@@ -127,14 +127,14 @@ void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int h
     }
 };
 
-void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType) {//It has all the conditions needed to catch a pokemon it just doesn't add one to the players set yet. I'm working on it though.  
-    if (isWildPokemon) {
-        if (numPokeballs <= 0) {
+void catchPokemon(bool is_wild_pokemon, int poke_Balls, string enemyType) {//It has all the conditions needed to catch a pokemon it just doesn't add one to the players set yet. I'm working on it though.  
+    if (is_wild_pokemon) {
+        if (poke_Balls <= 0) {
             cout << "Error: There are no Pokeballs left" << endl;
             return;
         }
         // To reduce the number of Pokeballs
-        numPokeballs--;
+        poke_Balls--;
         // Catch the Pokemon
         cout << "You caught a wild Pokemon!" << endl;
     } else {
@@ -150,39 +150,9 @@ void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType) {//It 
 }
 
 
-
-/* A FUNCTION THAT GETS HOW EFFECTIVE A MOVE TYPE IS AGAINST ANOTHER POKEMON TYPE. 
-double calculate_effectiveness(string move_type, string defender_type) {
-    double effectiveness = 1.0;
-    if(move_type == "water") {
-        if(defender_type == "grass" {
-            effectiveness = 2.0;
-        } else if(defender_type == "water") || defender_type == "normal"|| defender_type == "fighting"{
-            effectiveness = 0.5;
-        } else if(defender_type == "dragon")|| defender_type == "electric" {
-            effectiveness = 0.25;
-        }
-    } else if(move_type == "grass") {
-        // similar logic as for water type
-    } else if(move_type == "normal") {
-        // logic for normal type
-    } else if(move_type == "fighting") {
-        // logic for fighting type
-    } else if(move_type == "electric") {
-        // logic for electric type
-    } else if(move_type == "dragon") {
-        // logic for dragon type
-    } else {
-        // handle invalid move type
-    }
-    return effectiveness;
-}
-*/
-
-
 /*
 
-ANOTHER WAY WE CAN DO EFFECTIVENESS PART THIS ONE IS MORE COMPLEX 
+A WAY WE CAN GET HOW EFFECTIVE A MOVE IS
 
 // https://www.youtube.com/watch?v=GSja2w-HN20 used this to learn about ENUMS//
 namespace Move {
