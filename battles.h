@@ -128,39 +128,61 @@ void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int h
     }
 }
 
-//It has all the conditions needed to catch a pokemon it just doesn't add one to the players set yet. I'm working on it though.
-void catchPokemon(bool is_wild_pokemon, int poke_Balls, string enemyType) 
-{  
-    if (is_wild_pokemon) 
-    {
-        if (poke_Balls <= 0)
-        {
+void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType, vector<NPC>& pokemon_names) {
+    if (isWildPokemon) {
+        if (numPokeballs <= 0) {
             cout << "Error: There are no Pokeballs left" << endl;
             return;
         }
         // To reduce the number of Pokeballs
-        poke_Balls--;
+        numPokeballs--;
         // Catch the Pokemon
         cout << "You caught a wild Pokemon!" << endl;
-    } 
-    else 
-    {
+        string choice;
+        cout<<"Do you want to keep this pokemon ?"<<endl;
+        cout<< "Enter Y for yes, N for no"<<endl;
+        cin>> choice;
+        if(choice == "Y" || choice == "y"){
+            cout<<"These are the pokemons you have: "<<endl;
+            //for loop
+            int replaced_pokemon;
+            while(true)
+            {
+                cout<<"Enter the number of the pokemon you want to replace"<<endl;
+                cin>>replaced_pokemon;
+                if(replaced_pokemon < 1 || replaced_pokemon > 3){
+                    cout<<"Invalid input enter a number between 1 and 3"<<endl;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            string wildpokemon_name;
+            cout<<"What would you want to name this new pokemon";
+            cin>>wildpokemon_name;
+            //I'm having trouble adding the new wild pokemon to the list of pokemons
+            pokemon_names.emplace_back(wildpokemon_name);
+            cout<<"Added" << wildpokemon_name << "to your collection"<<endl; 
+        }
+        else if(choice == "n" || choice == "N"){
+            cout<<"You've let the wild pokemon go. "<<endl;
+        }
+        else{
+            cout<<"Invalid answer"<<endl;
+        }
+
+    } else {
         // Pokemon being fought is a trainer's Pokemon
-        if (enemyType == "trainer") 
-        {
+        if (enemyType == "trainer") {
             cout << "Error: Cannot catch a trainer's Pokemon" << endl;
-        } else if (enemyType == "pokemon") 
-        {
+        } else if (enemyType == "pokemon") {
             cout << "Error: Cannot catch another Pokemon, that's not wild" << endl;
-        } 
-        else 
-        {
+        } else {
             cout << "Error: Invalid enemy type" << endl;
         }
     }
 }
-
-
 /*
 
 A WAY WE CAN GET HOW EFFECTIVE A MOVE IS
