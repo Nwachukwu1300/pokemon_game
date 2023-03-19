@@ -126,9 +126,11 @@ void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int h
     {
         catchPokemon();
     }
-};
+}
 
-void catchPokemon(bool is_wild_pokemon, int poke_Balls, string enemyType) {//It has all the conditions needed to catch a pokemon it just doesn't add one to the players set yet. I'm working on it though.  
+//It has all the conditions needed to catch a pokemon it just doesn't add one to the players set yet. I'm working on it though.
+void catchPokemon(bool is_wild_pokemon, int poke_Balls, string enemyType) 
+{  
     if (is_wild_pokemon) 
     {
         if (poke_Balls <= 0)
