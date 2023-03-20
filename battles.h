@@ -57,7 +57,7 @@ void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int h
     //While loop used to make sure the player chooses in between 1 and 3
     while (is_true == true)
     {
-    cout << "Would you like to "<< endl << "1. ATTACK "<< endl << "2. SWITCH POKEMON" << endl << "3. Catch Pokemon" << endl;
+    cout << "Would you like to "<< endl << "1. ATTACK "<< endl << "2. SWITCH POKEMON" << endl << "3. CATCH POKEMON" << endl;
     cout << "Choice: ";
     cin >>  answer;
     
