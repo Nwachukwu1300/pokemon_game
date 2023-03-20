@@ -134,6 +134,11 @@ void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType, vector
             cout << "Error: There are no Pokeballs left" << endl;
             return;
         }
+        bool is_not_caught = (rand() % 2 == 0);//Its a boolean expression that generates a random integer between 0 and 1 and checks if it is equal to 0.
+        if (!is_not_caught) {
+            cout << "Oh no! The wild Pokemon got away." << endl;
+            return;
+        }
         // To reduce the number of Pokeballs
         numPokeballs--;
         // Catch the Pokemon
@@ -159,10 +164,11 @@ void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType, vector
                 }
             }
             string wildpokemon_name;
-            cout<<"What would you want to name this new pokemon";
+            NPC wildpokemon;
+            cout<<"What would you like to name this wild pokemon you just caught.";
             cin>>wildpokemon_name;
-            //I'm having trouble adding the new wild pokemon to the list of pokemons
-            pokemon_names.emplace_back(wildpokemon_name);
+            set_Name(wildpokemon_name);
+            pokemon_names.push_back(wildpokemon);
             cout<<"Added" << wildpokemon_name << "to your collection"<<endl; 
         }
         else if(choice == "n" || choice == "N"){
@@ -183,8 +189,8 @@ void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType, vector
         }
     }
 }
-/*
 
+/*
 A WAY WE CAN GET HOW EFFECTIVE A MOVE IS
 
 // https://www.youtube.com/watch?v=GSja2w-HN20 used this to learn about ENUMS//
