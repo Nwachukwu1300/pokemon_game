@@ -25,6 +25,68 @@ int attack(int pokemon_Hp, int damage_Done)
 }
 
 
+void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType, vector<NPC>& pokemon_names) {
+        if (isWildPokemon) {
+            if (numPokeballs <= 0) {
+                cout << "Error: There are no Pokeballs left" << endl;
+                return;
+            }
+            bool is_not_caught = (rand() % 2 == 0);//Its a boolean expression that generates a random integer between 0 and 1 and checks if it is equal to 0.
+            if (!is_not_caught) {
+                cout << "Oh no! The wild Pokemon got away." << endl;
+                return;
+            }
+            // To reduce the number of Pokeballs
+            numPokeballs--;
+            // Catch the Pokemon
+            cout << "You caught a wild Pokemon!" << endl;
+            string choice;
+            cout<<"Do you want to keep this pokemon ?"<<endl;
+            cout<< "Enter Y for yes, N for no"<<endl;
+            cin>> choice;
+            if(choice == "Y" || choice == "y"){
+                cout<<"These are the pokemons you have: "<<endl;
+                //for loop
+                int replaced_pokemon;
+                while(true)
+                {
+                    cout<<"Enter the number of the pokemon you want to replace"<<endl;
+                    cin>>replaced_pokemon;
+                    if(replaced_pokemon < 1 || replaced_pokemon > 3){
+                        cout<<"Invalid input enter a number between 1 and 3"<<endl;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                string wildpokemon_name;
+                NPC wildpokemon;
+                cout<<"What would you like to name this wild pokemon you just caught.";
+                cin>>wildpokemon_name;
+                wildpokemon.set_Name(wildpokemon_name);
+                pokemon_names.push_back(wildpokemon);
+                cout<<"Added" << wildpokemon_name << "to your collection"<<endl; 
+            }
+            else if(choice == "n" || choice == "N"){
+                cout<<"You've let the wild pokemon go. "<<endl;
+            }
+            else{
+                cout<<"Invalid answer"<<endl;
+            }
+
+        } else {
+            // Pokemon being fought is a trainer's Pokemon
+            if (enemyType == "trainer") {
+                cout << "Error: Cannot catch a trainer's Pokemon" << endl;
+            } else if (enemyType == "pokemon") {
+                cout << "Error: Cannot catch another Pokemon, that's not wild" << endl;
+            } else {
+                cout << "Error: Invalid enemy type" << endl;
+            }
+        }
+}
+
 //procedure to simulate the battle happening. (The variables we have not used yet look like errors but theyre not. Code still runs)
 void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int hp3, string ai_Name, int ai_Hp, string player_Name, int poke_Balls)
 {
@@ -124,72 +186,14 @@ void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int h
     //if statement for option 3
     else if (answer == 3)
     {
-        catchPokemon();
+        //This part here is what made it compile and I had to reasearch to understand what the ? does in c++
+        bool isWildPokemon = rand() % 2; // generates a random value of either 0 or 1
+        int numPokeballs = rand() % 20; // generates a random value between 0 and 19
+        string enemyType = (rand() % 2) ? "pokemon" : "trainer"; // generates either "wild" or "trainer"
+        vector<NPC> pokemon_names;
+        catchPokemon(isWildPokemon, numPokeballs, enemyType, pokemon_names);
     }
 }
-
-void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType, vector<NPC>& pokemon_names) {
-    if (isWildPokemon) {
-        if (numPokeballs <= 0) {
-            cout << "Error: There are no Pokeballs left" << endl;
-            return;
-        }
-        bool is_not_caught = (rand() % 2 == 0);//Its a boolean expression that generates a random integer between 0 and 1 and checks if it is equal to 0.
-        if (!is_not_caught) {
-            cout << "Oh no! The wild Pokemon got away." << endl;
-            return;
-        }
-        // To reduce the number of Pokeballs
-        numPokeballs--;
-        // Catch the Pokemon
-        cout << "You caught a wild Pokemon!" << endl;
-        string choice;
-        cout<<"Do you want to keep this pokemon ?"<<endl;
-        cout<< "Enter Y for yes, N for no"<<endl;
-        cin>> choice;
-        if(choice == "Y" || choice == "y"){
-            cout<<"These are the pokemons you have: "<<endl;
-            //for loop
-            int replaced_pokemon;
-            while(true)
-            {
-                cout<<"Enter the number of the pokemon you want to replace"<<endl;
-                cin>>replaced_pokemon;
-                if(replaced_pokemon < 1 || replaced_pokemon > 3){
-                    cout<<"Invalid input enter a number between 1 and 3"<<endl;
-                }
-                else
-                {
-                    break;
-                }
-            }
-            string wildpokemon_name;
-            NPC wildpokemon;
-            cout<<"What would you like to name this wild pokemon you just caught.";
-            cin>>wildpokemon_name;
-            set_Name(wildpokemon_name);
-            pokemon_names.push_back(wildpokemon);
-            cout<<"Added" << wildpokemon_name << "to your collection"<<endl; 
-        }
-        else if(choice == "n" || choice == "N"){
-            cout<<"You've let the wild pokemon go. "<<endl;
-        }
-        else{
-            cout<<"Invalid answer"<<endl;
-        }
-
-    } else {
-        // Pokemon being fought is a trainer's Pokemon
-        if (enemyType == "trainer") {
-            cout << "Error: Cannot catch a trainer's Pokemon" << endl;
-        } else if (enemyType == "pokemon") {
-            cout << "Error: Cannot catch another Pokemon, that's not wild" << endl;
-        } else {
-            cout << "Error: Invalid enemy type" << endl;
-        }
-    }
-}
-
 
 //A WAY WE CAN GET HOW EFFECTIVE A MOVE IS
 const string WATER_TYPE = "Water";
