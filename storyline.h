@@ -8,6 +8,7 @@ class Story
 public:
     int poke_Balls = 0;
     int pokemon_Count = 0;
+
     string player_Name = "";
     string rosterPokemonName1 = "";
 
@@ -21,6 +22,7 @@ public:
     {
         int randomInt;
         int answer;
+        string Trainer1 = "Lucy";
 
         //random generator to create a random number
         mt19937 rng(time(0)); // https://stackoverflow.com/questions/57135552/how-can-i-set-range-to-the-random-library
@@ -28,17 +30,17 @@ public:
         
         // the random generator, generating a random number
         randomInt = d(rng);
-        NPC Pokemon1;   //creating the first object
+        NPC Pokemon1;   //creating the object
         Pokemon1.pick_Random_Pokemon(randomInt); //calling the method to pick a random pokemon to be assigned to the object
 
         // the random generator, generating a random number
         randomInt = d(rng);
-        NPC Pokemon2;   //creating the first object
+        NPC Pokemon2;   //creating the object
         Pokemon2.pick_Random_Pokemon(randomInt); //calling the method to pick a random pokemon to be assigned to the object
 
         // the random generator, generating a random number
         randomInt = d(rng);
-        NPC Pokemon3;   //creating the first object
+        NPC Pokemon3;   //creating the object
         Pokemon3.pick_Random_Pokemon(randomInt); //calling the method to pick a random pokemon to be assigned to the object
 
         cout << "Neighbour:\"Welcome to the Kanto region...\""<< endl << "Neighbour: \"Erm, \"" << endl << "Neighbour:\"Sorry what is your name?\" ";
@@ -56,51 +58,60 @@ public:
         
         cout << "Dad:\"Son! Welcome to the Kanto region, I'm not sure why your mum doesn't let you come here.\"" << endl;
         cout << player_Name <<": \"Mum says pokemon are dangerous... Thats why\"" << endl;
-        cout << "Dad:\"Well now your old enough! and it's your lucky day!" << endl;
-        cout << "Dad:\"Here are 3 pokemon! Pick the one that you like the most to be your very own!\"" << endl;
+        cout << "Dad:\"Well now your old enough! and it's your lucky day!\"" << endl;
+        cout << "Dad:\"Here are 3 pokemon!\"" << endl;
 
         cout << endl;
 
-        cout << "1." << Pokemon1.get_Name() << " 2." << Pokemon2.get_Name() << " 3." << Pokemon3.get_Name() << endl;
+        cout << "1." << Pokemon1.get_Name() << "\t2." << Pokemon2.get_Name() << " \t3." << Pokemon3.get_Name() << endl;
+        cout << "Dad:\"Pick the pokemon that you like the most to be your very own!\"" << endl;
         cout << "Answer: ";
         cin >> answer;
 
         if(answer == 1)
         {
-            rosterPokemonName1 = answer;
+           rosterPokemonName1 =  Pokemon1.get_Name();
         }
-        else if (answer == 2)
+         else if (answer == 2)
         {
-            rosterPokemonName1 = answer;
+                rosterPokemonName1 = Pokemon2.get_Name();
         }
         else if(answer == 3)
         {
-            rosterPokemonName1 = answer;
+                rosterPokemonName1 = Pokemon3.get_Name();
         }
-
+      
+        
         cout << endl;
 
         //allow the user to pick an option of which pokemon they want
         cout << "Dad:\"Wow! " << rosterPokemonName1 << " That would have been my choice too...\"" << endl;
-
-
-
         cout << "Dad:\"Hey, here are some pokeballs just incase you run into any pokemon on your way to the house.\"" << endl;
+
+        cout << endl;
+
         cout << "*You have recieved 3 pokeballs!*" << endl;
+
+        cout << endl;
+
+        // make the pokeballs count now be 3
+        poke_Balls = 3;
+
         cout << "Dad:\"See you later Son, Good luck with your adventures!\"" << endl;
 
         cout << endl;
 
-        cout << "*WALKING HOME...*" << endl;
+        cout << "* WALKING HOME... *" << endl;
 
         //generate a pokemon for the user to run into to battle by force.
-        // the random generator, generating a random number
-        randomInt = d(rng);
-        NPC Pokemon4;   //creating the first object
+        randomInt = d(rng);  // the random generator, generating a random number
+        NPC Pokemon4;   //creating the  object
         Pokemon4.pick_Random_Pokemon(randomInt); //calling the method to pick a random pokemon to be assigned to the object
         
-        cout << "*"<<  Pokemon4.get_Name() <<" has been encountered*" << endl;
 
+        cout << "* "<<  Pokemon4.get_Name() <<" has been encountered *" << endl;
+
+        cout << endl;
         //call battle function
 
         //if the player wins
@@ -110,7 +121,7 @@ public:
 
         //when they have 2 pokemon
         cout << "Dad:\"Well done! I see you caught your first pokemon! It feels great doesnt it\"" << endl;
-        cout << "Dad:\"Well, seems your ready to face your first trainer!... Trainer Lucy\"" << endl;
+        cout << "Dad:\"Well, seems your ready to face your first trainer!... Trainer " << Trainer1 << "\"" << endl;
         cout << "Dad:\"She will be waiting for you at the battle gym south from here. Good luck\"" << endl;
 
         //travel to the gym
