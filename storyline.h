@@ -53,6 +53,7 @@ public:
         cout << endl << "*TRANSPORTING TO POKEMON HOSPITAL*" << endl;
 
         cout << endl;
+        
         cout << "Dad:\"Son! Welcome to the Kanto region, I'm not sure why your mum doesn't let you come here.\"" << endl;
         cout << player_Name <<": \"Mum says pokemon are dangerous... Thats why\"" << endl;
         cout << "Dad:\"Well now your old enough! and it's your lucky day!" << endl;
