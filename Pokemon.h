@@ -79,32 +79,26 @@ public:
         //find out if the poekmone is a certain type, if so add to correct vector
         if(temp == "Picachu" || temp == "Luxray" || temp == "Electrabuzz" )
         {
-            cout << temp << " is Electric" << endl;
             Electric_type.emplace_back(Pokemon_Name);
         }
         else if(  temp == "Lucario" || temp == "Mewtwo" || temp == "Snorlax" || temp == "Jigglypuff" || temp == "Pidgeot" || temp == "Butterfree" || temp == "Eevee")
         {
-            cout << temp << " is Normal" << endl;
             Normal_type.emplace_back(Pokemon_Name);
         }
         else if( temp == "Charzard" || temp == "Dragonite" || temp == "Axew")
         {
-            cout << temp << " is Dragon" << endl;
             Dragon_type.emplace_back(Pokemon_Name);
         }
         else if( temp == "Infernape" || temp == "Tepig")
         {
-            cout << temp << " is Fire" << endl;
             Fire_type.emplace_back(Pokemon_Name);
         }
         else if( temp == "Puplip" || temp == "Oshawott" || temp == "Magikarp")
         {
-            cout << temp << " is Water" << endl;
             Water_type.emplace_back(Pokemon_Name);
         }
         else if( temp == "Snivy" ||  temp == "Bulbasaur" ||  temp == "Turtwig")
         {
-            cout << temp << " is Grass" << endl;
             Grass_type.emplace_back(Pokemon_Name);
         }
     
