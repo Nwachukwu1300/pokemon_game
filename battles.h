@@ -6,10 +6,108 @@
 #include <ctime>
 #include <algorithm>
 
-int attack(int pokemon_Hp, int damage_Done)
+double calculate_effectiveness( string defender_type,  string move_type) {
+    double effectiveness = 1.0;
+    
+    // Water type
+    if (move_type == "Water") {
+        if (defender_type == "Fire" || defender_type == "Normal") {
+            effectiveness = 2.0;
+        } else if (defender_type == "Grass" || defender_type == "Fighting" || defender_type == "Water" || defender_type == "Flying") {
+            effectiveness = 0.5;
+        } else if (defender_type == "Dragon" || defender_type == "Electric") {
+            effectiveness = 0.25;
+        }
+    }
+    
+    // Grass type
+    if (move_type == "Grass") {
+        if (defender_type == "Water" || defender_type == "Electric") {
+            effectiveness = 2.0;
+        } else if ( defender_type == "Grass" || defender_type == "Normal" || defender_type == "Flying" || defender_type == "Dragon") {
+            effectiveness = 0.5;
+        } else if (defender_type == "Fire" || defender_type == "Fighting") {
+            effectiveness = 0.25;
+        }
+    }
+    
+    // Normal type
+    if (move_type == "Normal") {
+        if(defender_type == "Fire" || defender_type == "Water"){
+            effectiveness = 2.0;
+        }else if (defender_type == "Normal" || defender_type == "Fighting" || defender_type == "Grass" || defender_type == "Electric") {
+            effectiveness = 0.5;
+        } else if (defender_type == "Flying"|| defender_type == "Dragon") {
+            effectiveness = 0.25;
+        }
+    }
+    
+    // Fighting type
+    if (move_type == "Fighting") {
+        if (defender_type == "Normal" || defender_type == "Fire") {
+            effectiveness = 2.0;
+        } else if (defender_type == "Flying" || defender_type == "Dragon" || defender_type == "Grass" || defender_type == "Fighting" ) {
+            effectiveness = 0.5;
+        } else if (defender_type == "Water" || defender_type == "Elecric") {
+            effectiveness = 0.25;
+        }
+    }
+    
+    // Electric type
+    if (move_type == "Fighting") {
+        if (defender_type == "Dragon" || defender_type == "Flying") {
+            effectiveness = 2.0;
+        } else if (defender_type == "Electric" || defender_type == "Grass" || defender_type == "Normal"|| defender_type == "Fire") {
+            effectiveness = 0.5;
+        } else if (defender_type == "Water"|| defender_type == "Fighting") {
+            effectiveness = 0.25;
+        }
+    }
+    
+    // Dragon type
+    if (move_type == "Dragon") {
+        if (defender_type == "Water"|| defender_type == "Fighting") {
+            effectiveness = 2.0;
+        } else if (defender_type == "Dragon"|| defender_type == "Normal"|| defender_type == "Electric"|| defender_type == "Grass") {
+            effectiveness = 0.5;
+        } else if(defender_type == "Flying"|| defender_type == "Fire"){
+            effectiveness = 0.25;
+        }
+    }
+    
+    //Flying type
+    if (move_type == "Flying") {
+        if (defender_type == "Normal"|| defender_type == "Fire") {
+            effectiveness = 2.0;
+        } else if (defender_type == "Flying"|| defender_type == "Water"|| defender_type == "Electric"|| defender_type == "Grass") {
+            effectiveness = 0.5;
+        } else if(defender_type == "Dragon"|| defender_type == "Fighting"){
+            effectiveness = 0.25;
+        }
+    }
+    
+    //Fire type
+    if (move_type == "Fire") {
+        if (defender_type == "Water"|| defender_type == "Electric") {
+            effectiveness = 2.0;
+        } else if (defender_type == "Fighting"|| defender_type == "Fire"|| defender_type == "Flying"|| defender_type == "Grass") {
+            effectiveness = 0.5;
+        } else if(defender_type == "Dragon"|| defender_type == "Normal"){
+            effectiveness = 0.25;
+        }
+    }
+    return effectiveness;
+}
+string get_type(string pokemon_name);
+
+
+int attack(int pokemon_Hp, int damage_Done, string pokemon_name, string defender_name)
 {
     //set the new_hp to be 0
     int new_Hp = 0;
+    string pokemon_type = get_type(pokemon_name);
+    string defender_type = get_type(defender_name);
+    float how_effective = calculate_effectiveness(defender_type, pokemon_type);
 
     //set newHP to be the differnece  between the original hp an the damage done
     new_Hp = pokemon_Hp - damage_Done;
@@ -25,38 +123,39 @@ int attack(int pokemon_Hp, int damage_Done)
 }
 
 
-void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType, vector<NPC>& pokemon_names) {
-        if (isWildPokemon) {
-            if (numPokeballs <= 0) {
-                cout << "Error: There are no Pokeballs left" << endl;
+void catchPokemon(int num_poke_balls, bool is_wild_pokemon, string enemy_type, vector<NPC>& pokemon_names) {
+        if (is_wild_pokemon == 0){
+            if (num_poke_balls <= 0) {
+                cout << "ERROR: There are no pokeballs left" << endl;
                 return;
             }
-            bool is_not_caught = (rand() % 2 == 0);//Its a boolean expression that generates a random integer between 0 and 1 and checks if it is equal to 0.
-            if (!is_not_caught) {
+            bool is_caught = (rand() % 2 == 0);//Its a boolean expression that generates a random integer between 0 and 1 and checks if it is equal to 0.
+            if (is_caught==0) {
                 cout << "Oh no! The wild Pokemon got away." << endl;
                 return;
             }
             // To reduce the number of Pokeballs
-            numPokeballs--;
+            num_poke_balls--;
             // Catch the Pokemon
             cout << "You caught a wild Pokemon!" << endl;
-            string choice;
             cout<<"Do you want to keep this pokemon ?"<<endl;
             cout<< "Enter Y for yes, N for no"<<endl;
+            string choice;
             cin>> choice;
             if(choice == "Y" || choice == "y"){
-                cout<<"These are the pokemons you have: "<<endl;
-                //for loop
-                int replaced_pokemon;
-                while(true)
-                {
+                cout<<"These are the pokemons you have: "<<endl;// For loop to print out the pokemons they have
+                for(int name = 1; name <=3; name++){
+                    cout << name+1 << ". " << pokemon_names[name].get_Name() << endl;
+                }
+                while(true){
                     cout<<"Enter the number of the pokemon you want to replace"<<endl;
+                    int replaced_pokemon;
                     cin>>replaced_pokemon;
                     if(replaced_pokemon < 1 || replaced_pokemon > 3){
-                        cout<<"Invalid input enter a number between 1 and 3"<<endl;
+                        cout<<"ERRORR: Invalid input enter a number between 1 and 3"<<endl;
                     }
-                    else
-                    {
+                    else{
+                        pokemon_names.erase(pokemon_names.begin() + replaced_pokemon - 1);
                         break;
                     }
                 }
@@ -75,17 +174,18 @@ void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType, vector
                 cout<<"Invalid answer"<<endl;
             }
 
-        } else {
+        } else{
             // Pokemon being fought is a trainer's Pokemon
-            if (enemyType == "trainer") {
-                cout << "Error: Cannot catch a trainer's Pokemon" << endl;
-            } else if (enemyType == "pokemon") {
-                cout << "Error: Cannot catch another Pokemon, that's not wild" << endl;
+            if (enemy_type == "trainer") {
+                cout << "ERROR: You cannot catch a trainer's Pokemon" << endl;
+            } else if (enemy_type == "pokemon") {
+                cout << "ERROR: You cannot catch another Pokemon that's not wild" << endl;
             } else {
-                cout << "Error: Invalid enemy type" << endl;
+                cout << "ERROR: Invalid enemy type" << endl;
             }
         }
 }
+
 
 //procedure to simulate the battle happening. (The variables we have not used yet look like errors but theyre not. Code still runs)
 void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int hp3, string ai_Name, int ai_Hp, string player_Name, int poke_Balls)
@@ -186,117 +286,13 @@ void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int h
     //if statement for option 3
     else if (answer == 3)
     {
-        //This part here is what made it compile and I had to reasearch to understand what the ? does in c++
-        bool isWildPokemon = rand() % 2; // generates a random value of either 0 or 1
-        int numPokeballs = rand() % 20; // generates a random value between 0 and 19
-        string enemyType = (rand() % 2) ? "pokemon" : "trainer"; // generates either "wild" or "trainer"
+        bool is_pokemon_wild = rand() % 2; // generates a random value of either 0 or 1
+        int num_of_poke_balls = rand() % 21; // generates a random value between 0 and 20
+        string enemy_type = (rand() % 2) ? "pokemon" : "trainer"; // generates either "wild" or "trainer"
         vector<NPC> pokemon_names;
-        catchPokemon(isWildPokemon, numPokeballs, enemyType, pokemon_names);
+        catchPokemon(num_of_poke_balls, is_pokemon_wild, enemy_type, pokemon_names);
     }
 }
 
-//A WAY WE CAN GET HOW EFFECTIVE A MOVE IS
-const string WATER_TYPE = "Water";
-const string GRASS_TYPE = "Grass";
-const string NORMAL_TYPE = "Normal";
-const string FIGHTING_TYPE = "Fighting";
-const string ELECTRIC_TYPE = "Electric";
-const string DRAGON_TYPE = "Dragon";
-const string FLYING_TYPE = "Flying";
-const string FIRE_TYPE = "Fire";
-
-
-double calculate_effectiveness(const string& move_type, const string& defender_type) {
-    double effectiveness = 1.0;
-    
-    // Water type
-    if (move_type == WATER_TYPE) {
-        if (defender_type == "Fire" || defender_type == "Normal") {
-            effectiveness = 2.0;
-        } else if (defender_type == "Grass" || defender_type == "Fighting" || defender_type == "Water" || defender_type == "Flying") {
-            effectiveness = 0.5;
-        } else if (defender_type == "Dragon" || defender_type == "Electric") {
-            effectiveness = 0.25;
-        }
-    }
-    
-    // Grass type
-    if (move_type == GRASS_TYPE) {
-        if (defender_type == "Water" || defender_type == "Electric") {
-            effectiveness = 2.0;
-        } else if ( defender_type == "Grass" || defender_type == "Normal" || defender_type == "Flying" || defender_type == "Dragon") {
-            effectiveness = 0.5;
-        } else if (defender_type == "Fire" || defender_type == "Fighting") {
-            effectiveness = 0.25;
-        }
-    }
-    
-    // Normal type
-    if (move_type == NORMAL_TYPE) {
-        if(defender_type == "Fire" || defender_type == "Water"){
-            effectiveness = 2.0;
-        }else if (defender_type == "Normal" || defender_type == "Fighting" || defender_type == "Grass" || defender_type == "Electric") {
-            effectiveness = 0.5;
-        } else if (defender_type == "Flying"|| defender_type == "Dragon") {
-            effectiveness = 0.25;
-        }
-    }
-    
-    // Fighting type
-    if (move_type == FIGHTING_TYPE) {
-        if (defender_type == "Normal" || defender_type == "Fire") {
-            effectiveness = 2.0;
-        } else if (defender_type == "Flying" || defender_type == "Dragon" || defender_type == "Grass" || defender_type == "Fighting" ) {
-            effectiveness = 0.5;
-        } else if (defender_type == "Water" || defender_type == "Elecric") {
-            effectiveness = 0.25;
-        }
-    }
-    
-    // Electric type
-    if (move_type == ELECTRIC_TYPE) {
-        if (defender_type == "Dragon" || defender_type == "Flying") {
-            effectiveness = 2.0;
-        } else if (defender_type == "Electric" || defender_type == "Grass" || defender_type == "Normal"|| defender_type == "Fire") {
-            effectiveness = 0.5;
-        } else if (defender_type == "Water"|| defender_type == "Fighting") {
-            effectiveness = 0.25;
-        }
-    }
-    
-    // Dragon type
-    if (move_type == DRAGON_TYPE) {
-        if (defender_type == "Water"|| defender_type == "Fighting") {
-            effectiveness = 2.0;
-        } else if (defender_type == "Dragon"|| defender_type == "Normal"|| defender_type == "Electric"|| defender_type == "Grass") {
-            effectiveness = 0.5;
-        } else if(defender_type == "Flying"|| defender_type == "Fire"){
-            effectiveness = 0.25;
-        }
-    }
-    
-    //Flying type
-    if (move_type == FLYING_TYPE) {
-        if (defender_type == "Normal"|| defender_type == "Fire") {
-            effectiveness = 2.0;
-        } else if (defender_type == "Flying"|| defender_type == "Water"|| defender_type == "Electric"|| defender_type == "Grass") {
-            effectiveness = 0.5;
-        } else if(defender_type == "Dragon"|| defender_type == "Fighting"){
-            effectiveness = 0.25;
-        }
-    }
-    
-    //Fire type
-    if (move_type == FIRE_TYPE) {
-        if (defender_type == "Water"|| defender_type == "Electric") {
-            effectiveness = 2.0;
-        } else if (defender_type == "Fighting"|| defender_type == "Fire"|| defender_type == "Flying"|| defender_type == "Grass") {
-            effectiveness = 0.5;
-        } else if(defender_type == "Dragon"|| defender_type == "Normal"){
-            effectiveness = 0.25;
-        }
-    }
-    return effectiveness;
-}
 
 
