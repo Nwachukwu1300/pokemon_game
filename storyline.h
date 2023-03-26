@@ -11,6 +11,7 @@ public:
 
     string player_Name = "";
     string rosterPokemonName1 = "";
+    int rosterPokemonHp1 = 0;
 
 
 
@@ -68,17 +69,21 @@ public:
         cout << "Answer: ";
         cin >> answer;
 
+        //save the pokemons details to local variables for whatever pokemon is chosen
         if(answer == 1)
         {
            rosterPokemonName1 =  Pokemon1.get_Name();
+           rosterPokemonHp1 = Pokemon1.get_Hp();
         }
          else if (answer == 2)
         {
-                rosterPokemonName1 = Pokemon2.get_Name();
+            rosterPokemonName1 = Pokemon2.get_Name();
+            rosterPokemonHp1 = Pokemon2.get_Hp();
         }
         else if(answer == 3)
         {
-                rosterPokemonName1 = Pokemon3.get_Name();
+            rosterPokemonName1 = Pokemon3.get_Name();
+            rosterPokemonHp1 = Pokemon3.get_Hp();
         }
       
         
@@ -112,7 +117,16 @@ public:
         cout << "* "<<  Pokemon4.get_Name() <<" has been encountered *" << endl;
 
         cout << endl;
+
+       
+        
+    
+        
         //call battle function
+        //pass in all the values needed for the battle to commence
+        pokemonFirstBattle(rosterPokemonName1,rosterPokemonHp1,Pokemon4.get_Name(), Pokemon4.get_Hp(),player_Name ,poke_Balls);
+
+
 
         //if the player wins
         //check how many pokemon they have 
@@ -124,7 +138,15 @@ public:
         cout << "Dad:\"Well, seems your ready to face your first trainer!... Trainer " << Trainer1 << "\"" << endl;
         cout << "Dad:\"She will be waiting for you at the battle gym south from here. Good luck\"" << endl;
 
+        cout << endl;
+
         //travel to the gym
+        cout << "* Walking to Gym *" << endl;
+
+        cout << Trainer1 ":\"Welcome to the Kanto gym " << player_Name << ". Let's battle!\"";
+        cout << 
+
+
         //if visits > 1 then output " ahh your here to try and defeat me again"
         //battle trainer
 
