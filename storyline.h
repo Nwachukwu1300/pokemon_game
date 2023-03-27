@@ -124,8 +124,6 @@ public:
         //pass in all the values needed for the battle to commence
         battle.pokemonFirstBattle(rosterPokemonName1, rosterPokemonHp1, Pokemon4.get_Name(), Pokemon4.get_Hp(), player_Name , poke_Balls);
 
-
-
         //if the player wins
         //check how many pokemon they have 
         //if they have 2 proceed with the code

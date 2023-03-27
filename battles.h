@@ -10,6 +10,31 @@
 class Battles
 {
 public:
+    //declare moves from Pokemon_moves.h
+    Electric electric_Move1;
+    Electric electric_Move2;
+    Electric electric_Move3;
+    Normal normal_Move1;
+    Normal normal_Move2;
+    Normal normal_Move3;
+    Dragon dragon_Move1;
+    Dragon dragon_Move2;
+    Dragon dragon_Move3;
+    Water water_Move1;
+    Water water_Move2;
+    Water water_Move3;
+    Grass grass_Move1;
+    Grass grass_Move2;
+    Grass grass_Move3;
+    Fighting fighting_Move1;
+    Fighting fighting_Move2;
+    Fighting fighting_Move3;
+    Flying flying_Move1;
+    Flying flying_Move2;
+    Flying flying_Move3;
+    Fire fire_Move1;
+    Fire fire_Move2;
+    Fire fire_Move3;
 
     Battles()
     {
@@ -37,26 +62,8 @@ public:
     {
         //declare local variables
         int answer;
-        int pokemon_choice;
         bool is_true = true;
-
-        //declare moves from Pokemon_moves.h
-        Electric electric_Move1;
-        Electric electric_Move2;
-        Electric electric_Move3;
-        Fire fire_Move1;
-        Fire fire_Move2;
-        Fire fire_Move3;
-        
-        //call the moves (from Pokemon_moves) so that the individual variables are assigned
-        electric_Move1.electric_Move1();
-        electric_Move2.electric_Move2();
-        electric_Move3.electric_Move3();
-        fire_Move1.fire_Move1();
-        fire_Move2.fire_Move2();
-        fire_Move3.fire_Move3();
-
-        
+ 
         cout << player_Name << ": " << PokeName << " I choose you!"<< endl;
         cout << PokeName << " has been summoned..." << endl << endl;
         
@@ -210,22 +217,6 @@ public:
         int answer;
         int pokemon_choice;
         bool is_true = true;
-        
-        //declare moves from Pokemon_moves.h
-        Electric electric_Move1;
-        Electric electric_Move2;
-        Electric electric_Move3;
-        Fire fire_Move1;
-        Fire fire_Move2;
-        Fire fire_Move3;
-        
-        //call the moves (from Pokemon_moves) so that the individual variables are assigned
-        electric_Move1.electric_Move1();
-        electric_Move2.electric_Move2();
-        electric_Move3.electric_Move3();
-        fire_Move1.fire_Move1();
-        fire_Move2.fire_Move2();
-        fire_Move3.fire_Move3();
 
         cout << player_Name << ": " << name << " I choose you!"<< endl;
         cout << name << " has been summoned..." << endl << endl;

@@ -61,7 +61,6 @@ public:
         counter1 = 3;
         counter2 = 5;
         counter3 = 2;
-        counter4 = 1;
     }
     void normal_Move1()
     {
@@ -80,12 +79,6 @@ public:
         move_name = "Rock climb";
         damage = 45;
         counter3 = counter3 - 1;
-    }
-    void normal_Move4()
-    {
-        move_name = "Judgement";
-        damage = 90;
-        counter4 = counter4 - 1;
     }
     //getters
     int get_Damage()
