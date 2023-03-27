@@ -6,11 +6,12 @@
 #include <ctime>
 #include <algorithm>
 
+
 class Battles
 {
 public:
 
-    Battles
+    Battles()
     {
     }
 
@@ -32,7 +33,7 @@ public:
         return new_Hp;
     }
 
-    pokemonFirstBattle(string PokeName, int PokeHp , string ai_Name, int ai_Hp, string player_Name , int poke_Balls)
+    int pokemonFirstBattle(string PokeName, int PokeHp , string ai_Name, int ai_Hp, string player_Name , int poke_Balls)
     {
         //declare local variables
         int answer;
@@ -55,6 +56,7 @@ public:
         fire_Move2.fire_Move2();
         fire_Move3.fire_Move3();
 
+        
         cout << player_Name << ": " << PokeName << " I choose you!"<< endl;
         cout << PokeName << " has been summoned..." << endl << endl;
         
@@ -72,14 +74,15 @@ public:
             }
             else
             {
-                cout<<"invalid input, please choose one between the options which are 1 or 2 "<<endl;
+                cout << "invalid input, please choose one between the options which are 1 or 2 "<<endl;
             }
+            
         }
 
         //if statement for option 1
         if (answer == 1)
         {
-        FightScence(PokeHp, PokeName, ai_Hp, ai_Name);
+            FightScence(PokeHp, PokeName, ai_Hp, ai_Name);
         }
 
         //if statement for option 2
@@ -92,8 +95,11 @@ public:
             vector<NPC> pokemon_names;
             catchPokemon(isWildPokemon, numPokeballs, enemyType, pokemon_names);
         }
+
+        return 0;
     }
     
+   
 
     int FightScence(int Pokemon_Hp,string pokemon_name,int ai_hp, string  ai_name)
     {
@@ -103,30 +109,38 @@ public:
         while (Pokemon_Hp != 0)
         {
             // player uses move
-            cout << endl;
-            //switches out players pokemon
-            if (pokemon_Hp == 0)
-            {
 
-                //load new pokemon(i can't find the code for that(YET))
+            cout << endl;
+
+
+            //switches out players pokemon
+            if (Pokemon_Hp == 0)
+            {
+               
 
                 //message showing that their pokemon has been changed
-                cout << pokemon_name<<"has been defeated by: "<< ai_name << endl;
+                cout << pokemon_name << "has been defeated by: "<< ai_name << endl;
                 // message showing that the pokemon has been switched out acompanied by a message of what pokemon took thier place
                 cout << "pokemon has been switched to : " << endl; //new pokemon name should be before the end line statement
             }
         }
+
+        return 0;
     } 
     
 
-    void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType, vector<NPC>& pokemon_names) {
-            if (isWildPokemon) {
-                if (numPokeballs <= 0) {
+    void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType, vector<NPC>& pokemon_names) 
+    {
+            if (isWildPokemon) 
+            {
+                if (numPokeballs <= 0) 
+                {
                     cout << "Error: There are no Pokeballs left" << endl;
                     return;
                 }
                 bool is_not_caught = (rand() % 2 == 0);//Its a boolean expression that generates a random integer between 0 and 1 and checks if it is equal to 0.
-                if (!is_not_caught) {
+                if (!is_not_caught)
+                {
                     cout << "Oh no! The wild Pokemon got away." << endl;
                     return;
                 }
@@ -138,7 +152,8 @@ public:
                 cout<<"Do you want to keep this pokemon ?"<<endl;
                 cout<< "Enter Y for yes, N for no"<<endl;
                 cin>> choice;
-                if(choice == "Y" || choice == "y"){
+                if(choice == "Y" || choice == "y")
+                {
                     cout<<"These are the pokemons you have: "<<endl;
                     //for loop
                     int replaced_pokemon;
@@ -146,7 +161,8 @@ public:
                     {
                         cout<<"Enter the number of the pokemon you want to replace"<<endl;
                         cin>>replaced_pokemon;
-                        if(replaced_pokemon < 1 || replaced_pokemon > 3){
+                        if(replaced_pokemon < 1 || replaced_pokemon > 3)
+                        {
                             cout<<"Invalid input enter a number between 1 and 3"<<endl;
                         }
                         else
@@ -162,20 +178,25 @@ public:
                     pokemon_names.push_back(wildpokemon);
                     cout<<"Added" << wildpokemon_name << "to your collection"<<endl; 
                 }
-                else if(choice == "n" || choice == "N"){
+                else if(choice == "n" || choice == "N")
+                {
                     cout<<"You've let the wild pokemon go. "<<endl;
                 }
-                else{
+                else
+                {
                     cout<<"Invalid answer"<<endl;
                 }
 
             } else {
                 // Pokemon being fought is a trainer's Pokemon
-                if (enemyType == "trainer") {
+                if (enemyType == "trainer")
+                {
                     cout << "Error: Cannot catch a trainer's Pokemon" << endl;
-                } else if (enemyType == "pokemon") {
+                } else if (enemyType == "pokemon")
+                {
                     cout << "Error: Cannot catch another Pokemon, that's not wild" << endl;
-                } else {
+                } else 
+                {
                     cout << "Error: Invalid enemy type" << endl;
                 }
             }
@@ -184,6 +205,12 @@ public:
     //procedure to simulate the battle happening. (The variables we have not used yet look like errors but theyre not. Code still runs)
     void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int hp3, string ai_Name, int ai_Hp, string player_Name, int poke_Balls)
     {
+
+        //declare local variables
+        int answer;
+        int pokemon_choice;
+        bool is_true = true;
+        
         //declare moves from Pokemon_moves.h
         Electric electric_Move1;
         Electric electric_Move2;

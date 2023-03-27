@@ -21,6 +21,8 @@ public:
 
     void storyPart1()
     {
+        //declare to be able to use battle fucntions
+        Battles battle;
         int randomInt;
         int answer;
         string Trainer1 = "Lucy";
@@ -118,13 +120,9 @@ public:
 
         cout << endl;
 
-       
-        
-    
-        
         //call battle function
         //pass in all the values needed for the battle to commence
-        pokemonFirstBattle(rosterPokemonName1,rosterPokemonHp1,Pokemon4.get_Name(), Pokemon4.get_Hp(),player_Name ,poke_Balls);
+        battle.pokemonFirstBattle(rosterPokemonName1, rosterPokemonHp1, Pokemon4.get_Name(), Pokemon4.get_Hp(), player_Name , poke_Balls);
 
 
 
@@ -143,53 +141,12 @@ public:
         //travel to the gym
         cout << "* Walking to Gym *" << endl;
 
-        cout << Trainer1 ":\"Welcome to the Kanto gym " << player_Name << ". Let's battle!\"";
-        cout << 
+        cout << Trainer1 << ":\"Welcome to the Kanto gym " << player_Name << ". Let's battle!\"";
+        cout << endl;
 
 
         //if visits > 1 then output " ahh your here to try and defeat me again"
         //battle trainer
 
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 };
