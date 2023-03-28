@@ -58,56 +58,6 @@ public:
         return new_Hp;
     }
 
-    int pokemonFirstBattle(string PokeName, int PokeHp , string ai_Name, int ai_Hp, string player_Name , int poke_Balls)
-    {
-        //declare local variables
-        int answer;
-        bool is_true = true;
- 
-        cout << player_Name << ": " << PokeName << " I choose you!"<< endl;
-        cout << PokeName << " has been summoned..." << endl << endl;
-        
-        //While loop used to make sure the player chooses in between 1 and 3
-        while (is_true == true)
-        {
-        cout << "Would you like to "<< endl << "1. ATTACK "<< endl << "2. CATCH POKEMON" << endl;
-        cout << "Choice: ";
-        cin >>  answer;
-        
-            if (answer == 1 || answer == 2 )
-            {
-                //make is_true false so that when the while loops checks, it doesnt loop again.
-                is_true = false;
-            }
-            else
-            {
-                cout << "invalid input, please choose one between the options which are 1 or 2 "<<endl;
-            }
-            
-        }
-
-        //if statement for option 1
-        if (answer == 1)
-        {
-            FightScence(PokeHp, PokeName, ai_Hp, ai_Name);
-        }
-
-        //if statement for option 2
-        else if (answer == 2)
-        {
-            //This part here is what made it compile and I had to reasearch to understand what the ? does in c++
-            bool isWildPokemon = rand() % 2; // generates a random value of either 0 or 1
-            int numPokeballs = rand() % 20; // generates a random value between 0 and 19
-            string enemyType = (rand() % 2) ? "pokemon" : "trainer"; // generates either "wild" or "trainer"
-            vector<NPC> pokemon_names;
-            catchPokemon(isWildPokemon, numPokeballs, enemyType, pokemon_names);
-        }
-
-        return 0;
-    }
-    
-   
-
     int FightScence(int Pokemon_Hp,string pokemon_name,int ai_hp, string  ai_name)
     {
         int choice;
@@ -210,7 +160,7 @@ public:
     }
 
     //procedure to simulate the battle happening. (The variables we have not used yet look like errors but theyre not. Code still runs)
-    void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int hp3, string ai_Name, int ai_Hp, string player_Name, int poke_Balls)
+    void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int hp3, string ai_Name, int ai_Hp, string ai_Name2, int ai_Hp2, string player_Name, int poke_Balls)
     {
 
         //declare local variables
@@ -242,7 +192,9 @@ public:
         //if statement for option 1
         if (answer == 1)
         {
-            cout<<"attacking"<< endl;
+            
+           // FightScence();
+           exit(0);
         }
 
     //if statement for option 2 (swap pokemon) 
