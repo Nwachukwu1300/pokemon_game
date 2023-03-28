@@ -5,7 +5,7 @@
 #include <random>
 #include <ctime>
 #include <algorithm>
-
+using namespace std;
 
 class Battles
 {
@@ -58,32 +58,103 @@ public:
         return new_Hp;
     }
 
-    int FightScence(int Pokemon_Hp,string pokemon_name,int ai_hp, string  ai_name)
+    bool FightScence(int Pokemon_Hp,string pokemon_name,int ai_hp, string  ai_name,int pokemon_Remaining)
     {
         int choice;
+        bool Win;
+    
+        int randomInt;
+        int randomInt2;
+        mt19937 rng(time(0)); // https://stackoverflow.com/questions/57135552/how-can-i-set-range-to-the-random-library
+        uniform_int_distribution <int> d(0, 21); // The range of the length of pokemon file (hardcoded must be updated if more pokemon are added)
+        
 
+
+        //defines random number 
+        randomInt = d(rng);
+        randomInt2 = d(rng);
+        //create  pokemon object for player
+        NPC PlayerPokemon;
+        PlayerPokemon.pick_Random_Pokemon(randomInt);
+            
+
+        //create pokemon object for AI
+        NPC AiPokemon;
+        AiPokemon.pick_Random_Pokemon(randomInt2);
+
+        
+        //calls new pokemon name showing that the pokemon has been changed
+        cout<< " summoning new pokemon: "<< pokemon_name << endl;
+        cout<< pokemon_name <<" is ready for battle.... what move do you want to use:"<<endl;
+        
+        
+        
         //  loop for checking if pokemon HP has reached 0 and the continuous use of moves
-        while (Pokemon_Hp != 0)
+        while (pokemon_Remaining != 0)
         {
-            // player uses move
+            //false when player hasnt won
+            Win = false;
+            
+            
+            if (Pokemon_Hp <= 0){
+                //change pokemon
+                cout<< pokemon_name << " has been defeated"<<endl;
+                pokemon_Remaining -= 1;
+                //use of recursion to summon new pokemon 
+                FightScence(PlayerPokemon.get_Hp(), PlayerPokemon.get_Name(), AiPokemon.get_Hp(), AiPokemon.get_Name(), pokemon_Remaining);
+            
+            //ai pokemon conditionals
+            }else if (ai_hp <= 0){ 
+                // use of recursion to summon new pokemon(for now player will will if he defeats one(1) pokemon)
+                break;
 
-            cout << endl;
-
-
-            //switches out players pokemon
-            if (Pokemon_Hp == 0)
-            {
-               
-
-                //message showing that their pokemon has been changed
-                cout << pokemon_name << "has been defeated by: "<< ai_name << endl;
-                // message showing that the pokemon has been switched out acompanied by a message of what pokemon took thier place
-                cout << "pokemon has been switched to : " << endl; //new pokemon name should be before the end line statement
+                //FightScence(PlayerPokemon.get_Hp(), PlayerPokemon.get_Name(), AiPokemon.get_Hp(), AiPokemon.get_Name(),pokemon_Remaining);
             }
-        }
 
-        return 0;
-    } 
+            
+                  
+            
+            // choice of move - try make it a random move name
+            cout<< "1.Light attack: 15 DMG, 2.Normal attack: 35 DMG 3.Heavy attack: 50 DMG "<<endl;
+            cin >> choice;
+            cout << pokemon_name << " is using: " << "movename" << endl; 
+            
+
+            cout<< ai_name << " used: " << "movename"<< endl;
+            
+            //calculate damage (random for now)
+            Pokemon_Hp -= 30; // fixed damage recieved
+            if (choice == 1){
+                ai_hp -= 15;
+            }else if(choice == 2){
+                ai_hp -= 35;
+            }else{
+                ai_hp -= 50;
+            }
+            cout<<"your pokemon  "<<Pokemon_Hp<<" HP remaining"<<endl;
+            cout<<ai_name<< " has "<<ai_hp<<" HP remaining"<<endl;
+
+            //aim to add delay here
+
+        }
+        
+        //message to display if you've won return bool if they win 
+        if (pokemon_Remaining> 0){
+            cout << "That was a close one .... you win "<<endl;
+            Win = true;
+            return Win;
+            // exit(0); (use this is if the function wont end when you get the return value)
+        }else{
+            cout << "That was rough ...."<<endl;
+            return Win;
+        };
+        
+
+        return Win;
+    }
+
+        
+    
     
 
     void catchPokemon(bool isWildPokemon, int numPokeballs, string enemyType, vector<NPC>& pokemon_names) 
@@ -128,6 +199,7 @@ public:
                         }
                     }
                     string wildpokemon_name;
+                    
                     NPC wildpokemon;
                     cout<<"What would you like to name this wild pokemon you just caught.";
                     cin>>wildpokemon_name;
@@ -166,13 +238,13 @@ public:
         //declare local variables
         int answer;
         int pokemon_choice;
-        bool is_true = true;
+        bool is_valid = true;
 
         cout << player_Name << ": " << name << " I choose you!"<< endl;
         cout << name << " has been summoned..." << endl << endl;
         
         //While loop used to make sure the player chooses in between 1 and 3
-        while (is_true == true)
+        while (is_valid == true)
         {
         cout << "Would you like to "<< endl << "1. ATTACK "<< endl << "2. SWITCH POKEMON" << endl << "3. CATCH POKEMON" << endl;
         cout << "Choice: ";
@@ -181,7 +253,7 @@ public:
             if (answer == 1 || answer == 2 || answer == 3)
             {
                 //make is_true false so that when the while loops checks, it doesnt loop again.
-                is_true = false;
+                is_valid = false;
             }
             else
             {
@@ -193,7 +265,7 @@ public:
         if (answer == 1)
         {
             
-           // FightScence();
+          FightScence(hp,name,ai_Hp,ai_Name,3);
            exit(0);
         }
 
