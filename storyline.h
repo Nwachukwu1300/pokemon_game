@@ -16,6 +16,8 @@ public:
     int rosterPokemonHp2 = 0;
     string rosterPokemonName3 = "";
     int rosterPokemonHp3 = 0;
+    
+    bool bWin = false;
 
 
 
@@ -33,6 +35,7 @@ public:
 
         int randomInt;
         int answer;
+        string szAnswer = "" ;
         string Trainer1 = "Lucy";
 
         //random generator to create a random number
@@ -143,7 +146,7 @@ public:
 
         cout << endl;
 
-        // make the pokeballs count now be 3
+        //make the pokeballs count now be 3
         poke_Balls = 3;
 
         cout << endl;
@@ -169,11 +172,49 @@ public:
         randomInt = d(rng);
         NPC Pokemon6;   //creating the object
         Pokemon6.pick_Random_Pokemon(randomInt); //calling the method to pick a random pokemon to be assigned to the object
+    do
+    {
+        bWin = battle.pokemonBattle(rosterPokemonName1 , rosterPokemonHp1, rosterPokemonName2, rosterPokemonHp2, rosterPokemonName3, rosterPokemonHp3, Pokemon5.get_Name(), Pokemon5.get_Hp(), Pokemon6.get_Name(), Pokemon6.get_Hp(), player_Name, poke_Balls);
 
-        battle.pokemonBattle(rosterPokemonName1 , rosterPokemonHp1, rosterPokemonName2, rosterPokemonHp2, rosterPokemonName3, rosterPokemonHp3, Pokemon5.get_Name(), Pokemon5.get_Hp(), Pokemon6.get_Name(), Pokemon6.get_Hp(), player_Name, poke_Balls);
+        
+	//if the user wins
+	if(bWin == true)
+	{
+        cout << endl;
+        cout << endl;
 
-        //if visits > 1 then output " ahh your here to try and defeat me again"
-        //battle trainer
+		cout << Trainer1 << ":\"Wow " << player_Name <<" you were strong for your first ever battle!\"" << endl;
+		cout << Trainer1 << ":\"Here is a medal for your troubles\"" << endl;
+		cout << Trainer1 << ":\"You have great potential. Your next trainer will be waiting for you at the Levincia gym \"" << endl;
+		cout << Trainer1 << ":\"Good luck " << player_Name <<".\"" << endl;
+	
+		//call story part 2
+        storyPart2();
+    }
+        cout << endl;
+        cout << endl;
 
+		cout << Trainer1 << ":\"Haha unlucky " << player_Name << " \"" << endl;
+		cout << Trainer1 << ":\"Your going to have to beat me before you move on!\"" << endl;
+		cout << Trainer1 << ":\"Would you like to try again? (Y or N):\" ";
+		cin >> szAnswer;
+
+       
+	//if the user picks no then end the code. if not do while to the top.
+    } while (szAnswer == "Y" || szAnswer == "y");
+
+    cout << endl;
+    cout << endl;
+    cout << "Hope you enjoyed the game! See you soon";
+    exit(0);
+        
+
+	
+ 
+    }
+
+    void storyPart2()
+    {
+        exit(0);
     }
 };

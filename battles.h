@@ -36,6 +36,8 @@ public:
     Fire fire_Move2;
     Fire fire_Move3;
 
+    bool Win;
+
     Battles()
     {
     }
@@ -61,7 +63,7 @@ public:
     bool FightScence(int Pokemon_Hp,string pokemon_name,int ai_hp, string  ai_name,int pokemon_Remaining)
     {
         int choice;
-        bool Win;
+        
     
         int randomInt;
         int randomInt2;
@@ -84,7 +86,7 @@ public:
 
         
         //calls new pokemon name showing that the pokemon has been changed
-        cout<< " summoning new pokemon: "<< pokemon_name << endl;
+        cout<< "Summoning new pokemon: "<< pokemon_name << endl;
         cout<< pokemon_name <<" is ready for battle.... what move do you want to use:"<<endl;
         
         
@@ -115,7 +117,7 @@ public:
                   
             
             // choice of move - try make it a random move name
-            cout<< "1.Light attack: 15 DMG, 2.Normal attack: 35 DMG 3.Heavy attack: 50 DMG "<<endl;
+            cout<< "1.Light attack: (15 DMG), 2.Normal attack: (35 DMG), 3.Heavy attack: (50 DMG): ";
             cin >> choice;
             cout << pokemon_name << " is using: " << "movename" << endl; 
             
@@ -232,7 +234,7 @@ public:
     }
 
     //procedure to simulate the battle happening. (The variables we have not used yet look like errors but theyre not. Code still runs)
-    void pokemonBattle(string name,int hp, string name2,int hp2, string name3, int hp3, string ai_Name, int ai_Hp, string ai_Name2, int ai_Hp2, string player_Name, int poke_Balls)
+    bool pokemonBattle(string name,int hp, string name2,int hp2, string name3, int hp3, string ai_Name, int ai_Hp, string ai_Name2, int ai_Hp2, string player_Name, int poke_Balls)
     {
 
         //declare local variables
@@ -265,8 +267,8 @@ public:
         if (answer == 1)
         {
             
-          FightScence(hp,name,ai_Hp,ai_Name,3);
-           exit(0);
+          Win = FightScence(hp,name,ai_Hp,ai_Name,3);
+           return (Win);
         }
 
     //if statement for option 2 (swap pokemon) 
