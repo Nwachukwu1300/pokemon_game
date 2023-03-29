@@ -3,13 +3,17 @@
 #include <random>
 using namespace std;
 
+//create class
 class Story 
 {
 public:
+    //declare public variables
     int poke_Balls = 0;
     int pokemon_Count = 0;
     string player_Name = "";
+    bool bWin = false;
 
+    //local variables to store details about the pokemon called / created
     string rosterPokemonName1 = "";
     int rosterPokemonHp1 = 0;
     string rosterPokemonName2 = "";
@@ -17,54 +21,52 @@ public:
     string rosterPokemonName3 = "";
     int rosterPokemonHp3 = 0;
     
-    bool bWin = false;
-
-
-
-
-
-
+    //create the object story
     Story()
     {
     }
 
+    //void where the story line is going to be
     void storyPart1()
     {
         //declare to be able to use battle fucntions
         Battles battle;
 
+        //local variables
         int randomInt;
         int answer;
-        string szAnswer = "" ;
+        string szAnswer = "";
         string Trainer1 = "Lucy";
 
         //random generator to create a random number
         mt19937 rng(time(0)); // https://stackoverflow.com/questions/57135552/how-can-i-set-range-to-the-random-library
         uniform_int_distribution <int> d(0, 21); // The range of the length of pokemon file (hardcoded must be updated if more pokemon are added)
         
-        // the random generator, generating a random number
+        //the random generator, generating a random number
         randomInt = d(rng);
         NPC Pokemon1;   //creating the object
         Pokemon1.pick_Random_Pokemon(randomInt); //calling the method to pick a random pokemon to be assigned to the object
 
-        // the random generator, generating a random number
+        //the random generator, generating a random number
         randomInt = d(rng);
         NPC Pokemon2;   //creating the object
         Pokemon2.pick_Random_Pokemon(randomInt); //calling the method to pick a random pokemon to be assigned to the object
 
-        // the random generator, generating a random number
+        //the random generator, generating a random number
         randomInt = d(rng);
         NPC Pokemon3;   //creating the object
         Pokemon3.pick_Random_Pokemon(randomInt); //calling the method to pick a random pokemon to be assigned to the object
 
-        // the random generator, generating a random number
+        //the random generator, generating a random number
         randomInt = d(rng);
         NPC Pokemon4;   //creating the object
         Pokemon4.pick_Random_Pokemon(randomInt); //calling the method to pick a random pokemon to be assigned to the object
 
+        //story text 
         cout << "Neighbour:\"Welcome to the Kanto region...\""<< endl << "Neighbour: \"Erm, \"" << endl << "Neighbour:\"Sorry what is your name?\" ";
-        cin >> player_Name;
+        cin >> player_Name; //ask for the user to enter thier name
 
+        //story text
         cout << endl << "Neighbour:\"Oh, " << player_Name << ". What a wonderful name!\"";
         cout << endl << "Neighbour:\"How nice of you to come and visit your father!\"" << endl;
         cout << "Neighbour:\"He's excited to see you...\"" << endl;
@@ -73,19 +75,23 @@ public:
         
         cout << endl << "*TRANSPORTING TO POKEMON HOSPITAL*" << endl;
 
+        //paragraph
         cout << endl;
         
+        //story text
         cout << "Dad:\"Son! Welcome to the Kanto region, I'm not sure why your mum doesn't let you come here.\"" << endl;
         cout << player_Name <<": \"Mum says pokemon are dangerous... Thats why\"" << endl;
         cout << "Dad:\"Well now your old enough! and it's your lucky day!\"" << endl;
         cout << "Dad:\"Here are 4 pokemon!\"" << endl;
 
+        //paragraph
         cout << endl;
 
+        //Display the pokemon for the user to pick which pokemon they dont want
         cout << "1." << Pokemon1.get_Name() << "\t\t2." << Pokemon2.get_Name() << " \t3." << Pokemon3.get_Name() << " \t\t4." <<  Pokemon4.get_Name() << endl << endl;
         cout << "Dad:\"Pick the pokemon that you don't want so you can discard it.\"" << endl << "Dad:\"The other 3 will be your very own!\"" << endl;
         cout << "Answer: ";
-        cin >> answer;
+        cin >> answer; // get an inputted number 
 
         //save the pokemons details to local variables for whatever pokemon is not chosen
         if(answer == 1)
@@ -133,56 +139,67 @@ public:
            rosterPokemonHp3 = Pokemon3.get_Hp();
         }
       
-        
+        //paragraph
         cout << endl;
 
-        //allow the user to pick an option of which pokemon they want
+        //Story text
         cout << "Dad:\"Wow! " << rosterPokemonName1 <<", " <<  rosterPokemonName2 << " and " << rosterPokemonName3 << " That would have been my choices too...\"" << endl;
         cout << "Dad:\"Hey, here are some pokeballs just incase you run into any pokemon on your way to the house.\"" << endl;
 
+        //paragraph
         cout << endl;
 
+        //text to recieve pokeballs
         cout << "*You have recieved 3 pokeballs!*" << endl;
-
-        cout << endl;
 
         //make the pokeballs count now be 3
         poke_Balls = 3;
 
+        //paragraph
+        cout << endl;
         cout << endl;
 
+        //story text
         cout << "Dad:\"Well, seems your ready to face your first trainer!... Trainer " << Trainer1 << "\"" << endl;
         cout << "Dad:\"She will be waiting for you at the battle gym south from here. Good luck\"" << endl;
 
+        //paragraph
         cout << endl;
 
         //travel to the gym
         cout << "* Walking to Gym *" << endl;
 
+        //story text
         cout << Trainer1 << ":\"Welcome to the Kanto gym " << player_Name << ". Let's battle!\"";
-        cout << endl;
+        cout << endl; //paragraph
 
         //generate 2 pokemon for the ai trainer to use
-
         // the random generator, generating a random number
         randomInt = d(rng);
         NPC Pokemon5;   //creating the object
         Pokemon5.pick_Random_Pokemon(randomInt); //calling the method to pick a random pokemon to be assigned to the object
+
         // the random generator, generating a random number
         randomInt = d(rng);
         NPC Pokemon6;   //creating the object
         Pokemon6.pick_Random_Pokemon(randomInt); //calling the method to pick a random pokemon to be assigned to the object
+
+    //do all of this code here while the user chooses to play again (after losing)
     do
     {
+        //pass into the function all the pokemon generated and all their attributes also the players name and the amount of pokeballs. This returns if the player won or not in Boolean
         bWin = battle.pokemonBattle(rosterPokemonName1 , rosterPokemonHp1, rosterPokemonName2, rosterPokemonHp2, rosterPokemonName3, rosterPokemonHp3, Pokemon5.get_Name(), Pokemon5.get_Hp(), Pokemon6.get_Name(), Pokemon6.get_Hp(), player_Name, poke_Balls);
 
         
-	//if the user wins
+	//if the user wins print text then pass onto the next story
 	if(bWin == true)
 	{
+
+        //paragraph
         cout << endl;
         cout << endl;
 
+        //story text
 		cout << Trainer1 << ":\"Wow " << player_Name <<" you were strong for your first ever battle!\"" << endl;
 		cout << Trainer1 << ":\"Here is a medal for your troubles\"" << endl;
 		cout << Trainer1 << ":\"You have great potential. Your next trainer will be waiting for you at the Levincia gym \"" << endl;
@@ -191,28 +208,29 @@ public:
 		//call story part 2
         storyPart2();
     }
+
+        //paragraph
         cout << endl;
         cout << endl;
 
+        //story text
 		cout << Trainer1 << ":\"Haha unlucky " << player_Name << " \"" << endl;
 		cout << Trainer1 << ":\"Your going to have to beat me before you move on!\"" << endl;
 		cout << Trainer1 << ":\"Would you like to try again? (Y or N):\" ";
-		cin >> szAnswer;
+		cin >> szAnswer; // collect an answer as a string 
 
        
 	//if the user picks no then end the code. if not do while to the top.
     } while (szAnswer == "Y" || szAnswer == "y");
 
-    cout << endl;
-    cout << endl;
-    cout << "Hope you enjoyed the game! See you soon";
-    exit(0);
-        
-
-	
- 
+        //paragraph
+        cout << endl;
+        cout << endl;
+        cout << "Hope you enjoyed the game! See you soon";
+        exit(0); // end the game
     }
 
+    //ife's part
     void storyPart2()
     {
         exit(0);

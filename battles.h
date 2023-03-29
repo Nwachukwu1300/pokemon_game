@@ -42,6 +42,7 @@ public:
     {
     }
 
+
     int attack(int pokemon_Hp, int damage_Done)
     {
         //set the new_hp to be 0
@@ -113,9 +114,6 @@ public:
                 //FightScence(PlayerPokemon.get_Hp(), PlayerPokemon.get_Name(), AiPokemon.get_Hp(), AiPokemon.get_Name(),pokemon_Remaining);
             }
 
-            
-                  
-            
             // choice of move - try make it a random move name
             cout<< "1.Light attack: (15 DMG), 2.Normal attack: (35 DMG), 3.Heavy attack: (50 DMG): ";
             cin >> choice;

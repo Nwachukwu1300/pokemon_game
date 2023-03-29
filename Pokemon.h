@@ -8,13 +8,20 @@
 #include <algorithm>
 using namespace std;
 
+//create class
 class NPC
 {
 public:
+
+    //public variables in class
     int pokemon_Hp = 0;
     int counter = 0;
     string Pokemon_Name;
+
+    //vectors to store the pokemon names from the file
     vector <string> Pokemon_Names;
+
+    //vectors to hold each pokemon of each type
     vector <string> Electric_type;
     vector <string> Normal_type;
     vector <string> Dragon_type;
@@ -29,6 +36,7 @@ public:
         //update the counter so that the vector gets looped though randmly to set a new name for the object
         counter = counter + 1;
 
+        //if the counter is more than 0 then dont reload the pokemon else load the file into the code
         if(counter > 0 )
         {
             load_pokemon();
@@ -36,10 +44,9 @@ public:
         
         //create the name of the pokemon object
         pokemon_Hp = 100;
-        
-        cout<<endl;
     }
 
+    //load in pokemon from the file
     void load_pokemon()
     {
         //opens the file
@@ -63,11 +70,12 @@ public:
         }
         else
         {
-            //print out that the file cannot be found if the file is not loading 
+            //print out that the file cannot be found if the file is not loading instead of crashing
             cout << "Couldn't find file";
         }
     }
 
+    //pick a random pokemon to generate
     int pick_Random_Pokemon(int randomInt)
     {
         //declare variables
@@ -102,7 +110,7 @@ public:
             Grass_type.emplace_back(Pokemon_Name);
         }
     
-        //for loop to remove the names of the pokemon that have already been chosen so there is no repeat (DOES NOT WORK ATM)
+        //for loop to remove the names of the pokemon that have already been chosen so there is no repeat 
         for(int i = 0; i < 8; i++)
         {
              if(temp == Pokemon_Names[i])
@@ -123,15 +131,15 @@ public:
         //the name of the pokemon gets transferred to the public variable
         Pokemon_Name = temp; 
 
-        return randomInt;
-        
-       
+        //return the random number created
+        return randomInt;   
     }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                            Setters
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//used to set the pokemons name
 string set_Name(string name)
 {
     //set the public variable pokemon_name to the name just passed in
@@ -140,6 +148,7 @@ string set_Name(string name)
     return Pokemon_Name;
 }
 
+//used to set the hp if it changes
 int set_Hp(int HP)
 {
     //set the public variable pokemon_hp to the hp just passed in
@@ -148,29 +157,28 @@ int set_Hp(int HP)
     return pokemon_Hp;
 }
 
+//resets the pokemons hp to 100 to be used after a battle to "heal" the pokemon
 void set_Heal_Reset()
 {
-    //resets the pokemons hp to 100 to be used after a battle to "heal" the pokemon
+    
     pokemon_Hp = 100;
     cout << endl;
     cout << "*POKEMON HAS BEEN HEALED*";
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                            Getters
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    //return the pokemon name on request
     string get_Name()
     {
-        //return the pokemon name on request
         return Pokemon_Name;
     }
 
+    //return the pokemon hp on request
     int get_Hp()
     {
-        //retunn the pokemon hp on request
         return pokemon_Hp;
     }
 
@@ -180,7 +188,7 @@ void set_Heal_Reset()
 
 
     
-    //prints the stats of the pokemon. (later could add the pokemon type (Fire,water etc...))
+    //prints the stats of the pokemon. (used wen testing the code)
     void print_stats()
     {
         cout << "Name: " << Pokemon_Name << endl;
