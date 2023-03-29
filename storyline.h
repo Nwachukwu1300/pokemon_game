@@ -80,28 +80,37 @@ public:
 
 
         //story text 
-        cout << "Neighbour:\"Welcome to the Kanto region...\""<< endl << "Neighbour: \"Erm, \"" << endl << "Neighbour:\"Sorry what is your name?\" ";
+        cout << "Neighbour:\"Welcome to the Kanto region...\"" << endl; 
+        delay(1500);
+        cout << "Neighbour: \"Erm, \"" << endl;
+        delay(2000);
+        cout  << "Neighbour:\"Sorry what is your name?\" ";
         cin >> player_Name; //ask for the user to enter thier name
-
 
         //story text
         cout << endl << "Neighbour:\"Oh, " << player_Name << ". What a wonderful name!\"";
+        delay(1500);
         cout << endl << "Neighbour:\"How nice of you to come and visit your father!\"" << endl;
+        delay(1500);
         cout << "Neighbour:\"He's excited to see you...\"" << endl;
+        delay(1500);
         cout << "Neighbour:\"He's at the pokemon hospital, I'll take you there now.\"" << endl;
 
 
         
         cout << endl << "*TRANSPORTING TO POKEMON HOSPITAL*" << endl;
-
+        delay(4000);
 
         //paragraph
         cout << endl;
         
         //story text
         cout << "Dad:\"Son! Welcome to the Kanto region, I'm not sure why your mum doesn't let you come here.\"" << endl;
+        delay(1500);
         cout << player_Name <<": \"Mum says pokemon are dangerous... Thats why\"" << endl;
+        delay(1500);
         cout << "Dad:\"Well now your old enough! and it's your lucky day!\"" << endl;
+        delay(1500);
         cout << "Dad:\"Here are 4 pokemon!\"" << endl;
 
 
@@ -173,16 +182,17 @@ public:
         //paragraph
         cout << endl;
 
-
+        delay(2000);
         //Story text
         cout << "Dad:\"Wow! " << rosterPokemonName1 <<", " <<  rosterPokemonName2 << " and " << rosterPokemonName3 << " That would have been my choices too...\"" << endl;
-        cout << "Dad:\"Hey, here are some pokeballs just incase you run into any pokemon on your way to the house.\"" << endl;
+       delay(1500);
+        cout << "Dad:\"Hey, here are some pokeballs just incase you run into any pokemon on your way.\"" << endl;
 
 
         //paragraph
         cout << endl;
 
-
+        delay(1500);
         //text to recieve pokeballs
         cout << "*You have recieved 3 pokeballs!*" << endl;
 
@@ -195,20 +205,22 @@ public:
         cout << endl;
         cout << endl;
 
-
+        delay(2000);
         //story text
         cout << "Dad:\"Well, seems your ready to face your first trainer!... Trainer " << Trainer1 << "\"" << endl;
+        delay(1500);
         cout << "Dad:\"She will be waiting for you at the battle gym south from here. Good luck\"" << endl;
 
 
         //paragraph
         cout << endl;
 
-
+        delay(1500);
         //travel to the gym
         cout << "* Walking to Gym *" << endl;
 
 
+        delay(4000);
         //story text
         cout << Trainer1 << ":\"Welcome to the Kanto gym " << player_Name << ". Let's battle!\"";
         cout << endl; //paragraph
@@ -244,11 +256,14 @@ public:
         cout << endl;
         cout << endl;
 
-
+        delay(1500);
         //story text
         cout << Trainer1 << ":\"Wow " << player_Name <<" you were strong for your first ever battle!\"" << endl;
+        delay(1500);
         cout << Trainer1 << ":\"Here is a medal for your troubles\"" << endl;
+        delay(1500);
         cout << Trainer1 << ":\"You have great potential. Your next trainer will be waiting for you at the Levincia gym \"" << endl;
+        delay(1500);
         cout << Trainer1 << ":\"Good luck " << player_Name <<".\"" << endl;
     
         //call story part 2
@@ -260,10 +275,12 @@ public:
         cout << endl;
         cout << endl;
 
-
+        delay(1500);
         //story text
         cout << Trainer1 << ":\"Haha unlucky " << player_Name << " \"" << endl;
+        delay(1500);
         cout << Trainer1 << ":\"Your going to have to beat me before you move on!\"" << endl;
+        delay(1500);
         cout << Trainer1 << ":\"Would you like to try again? (Y or N):\" ";
         cin >> szAnswer; // collect an answer as a string 
 
@@ -276,6 +293,8 @@ public:
         //paragraph
         cout << endl;
         cout << endl;
+
+        delay(1500);
         cout << "Hope you enjoyed the game! See you soon";
         exit(0); // end the game
     }
