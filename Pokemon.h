@@ -121,7 +121,7 @@ public:
         }
     
         //for loop to remove the names of the pokemon that have already been chosen so there is no repeat 
-        for(int i = 0; i < 8; i++)
+        for(int i = 0; i < 21; i++)
         {
              if(temp == Pokemon_Names[i])
              {
