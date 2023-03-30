@@ -309,14 +309,25 @@ public:
         //declare to be able to use battle functions
         Battles battle;
         
+        //paragraph
+        cout << endl;
+
+        
         delay(1500);
         cout << player_Name <<": \"In order to get there, I will have to go through the great forest which is full of pokemon\"" << endl;
         delay(1500);
         cout << player_Name <<": \"I hope I don't encounter any wild pokemons on the way \"" << endl;
         
+        //paragraph
+        cout << endl;
+
         delay(1500);
         //travel to the gym
         cout << "* Walking through to the forest *" << endl;
+        
+        //paragraph
+        cout << endl;
+
         delay(1500);
         cout << "* Pokemon encouintered *" << endl;
 
