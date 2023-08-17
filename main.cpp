@@ -9,13 +9,13 @@ using namespace std;
 
 
 int main()
-{   
+{
     //create story object
     Story story;
 
-    //call the first part of The story which will lead to the rest of the code
+    //call the first part of THe story which will lead to the rest of the code
     story.storyPart1();
-    
+
     return 0;
 }
 
