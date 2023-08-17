@@ -13,7 +13,7 @@ int main()
     //create story object
     Story story;
 
-    //call the first part of the story which will lead to the rest of the code
+    //call the first part of The story which will lead to the rest of the code
     story.storyPart1();
     
     return 0;
